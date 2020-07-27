@@ -49,7 +49,7 @@ Things you may want to cover:
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
-|phone_number|integer||
+|phone_number|integer|unll: false, unique: true|
 |user|references|null:false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -62,7 +62,7 @@ Things you may want to cover:
 |expiration_month|string|null: false|
 |expiration_year|string|null: false|
 |security_code|string|null: false|
-|user|references|null :false forgin_key: true|
+|user|references|null :false foreign_key: true|
 ### Association
 - belongs_to: user
 
@@ -106,7 +106,7 @@ Things you may want to cover:
 ## todo_lists table
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false|
+|user|references|null: false,foreign_key: true|
 |lest|text|null: false|
 ### Association
 - belongs_to :user
@@ -118,16 +118,16 @@ Things you may want to cover:
 |introduction|text|null: false|
 |price|integer|null: false|
 |brand|references|forgin_key: true|
-|category|references|null: false,forgin_key: true|
-|item_condition|references|null: false,forgin_key: true|
-|postage_payer|references|null: false,forgin_key: true|
+|category|references|null: false,foreign_key: true|
+|item_condition|references|null: false,foreign_key: true|
+|postage_payer|references|null: false,foreign_key: true|
 |prefecture_code|integer|null:false|
-|preparation_day|references|null: false,forgin_key: true|
+|preparation_day|references|null: false,foreign_key: true|
 |postage_type|references|null:false,forgin_key: true|
 ### Association
 - has_many :comments,dependent: :destroy
 - has_many :favorites
-- has_many :item_image,dependent: :destroy
+- has_many :item_images,dependent: :destroy
 - has_one :user_evaluation
 - belongs_to :brand
 - belongs_to :category
@@ -140,8 +140,8 @@ Things you may want to cover:
 ## comments table
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false,forgin_key: true|
-|item|references|null: false,forgin_key: true|
+|user|references|null: false,foreign_key: true|
+|item|references|null: false,foreign_key: true|
 |comment|text|null:false|
 |created_at|timestamp|null:false|
 ### Association
@@ -152,8 +152,8 @@ Things you may want to cover:
 ## favorites
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false,forgin_key: true|
-|item|references|null: false,forgin_key: true|
+|user|references|null: false,foreign_key: true|
+|item|references|null: false,foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
