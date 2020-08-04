@@ -50,6 +50,11 @@
       %span{class: "text-required"} 必須
       = select_tag 'preparation_days', options_for_select([["選択して下さい", ""],["1~2日で発送", "0"], ["2~3日で発送","1"],["4~7日で発送", "2"]])
 
+      %span 発送方法
+      %span{class: "text-required"} 必須
+      = select_tag 'postage_type', options_for_select([["選択して下さい", ""],["レターパックライト", "0"], ["ネコポス","1"],["ゆうパケット", "2"],["日本郵便", "2"],
+                                                       ["ヤマト便", "2"]])
+
     .item-price
       %span 販売価格
       %span{class: "text-required"} 必須
