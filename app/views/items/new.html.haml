@@ -1,0 +1,93 @@
+.header
+  .header__logo
+    = link_to image_tag('logo/logo.png', alt: '', class: 'header__logo-main'), '#'
+
+.form
+  %form.input__box
+    .item-image
+      %span 出品画像 
+      %span{class: "text-required"} 必須
+      .item-image__box
+        %label
+          .label__box
+            %input{type: "file", class: "image-file"}/
+            = icon('fas', 'camera')
+
+    .item-content
+      %span 商品名
+      %span{class: "text-required"} 必須
+      %input{type: "text", class: "item__name", placeholder: '40文字まで'}
+
+      %span 商品の説明
+      %span{class: "text-required"} 必須
+      %textarea{id: "item_content", class:"content-area", placeholder: "色・素材・重さ・定価・注意点などを記載しましょう(1000文字まで)"}
+
+    .item-detail
+      %span カテゴリ
+      %span{class: "text-required"} 必須
+      = select_tag 'category_id', options_for_select([["選択して下さい", ""],["メンズ", "0"],["レディース", "1"],["ベビーキッズ", "2"]])
+
+      %span ブランド
+      %input{type: "text", class: "brand__name" ,placeholder: 'ブランド名'}
+
+      %span 商品の状態
+      %span{class: "text-required"} 必須
+      = select_tag 'item_condition', options_for_select([["選択して下さい", ""], ["新品未使用","0"], ["未使用に近い","1"], ["目立った傷汚れなし","2"], ["やや傷汚れあり", "3"], ["傷汚れあり","4"], ["全体的に状態が悪い","4"]])
+
+    .item-delibary
+      %span 送料の負担
+      %span{class: "text-required"} 必須
+      = select_tag 'postage_payer', options_for_select([["選択して下さい", ""],["送料込み(出品者負担)","0"], ["着払い(購入者負担)", "1"]]) 
+      %span 発送元の地域
+      %span{class: "text-required"} 必須
+      = select_tag 'prefecture_code', options_for_select([["選択して下さい", ""],["北海道", "0"],["青森県", "1"],["岩手県", "2"],["宮城県", "3"],["秋田県", "4"],["山形県", "5"],["福島県", "6"],
+                                                          ["茨城県", "7"],["栃木県", "8"],["群馬県", "9"],["埼玉県", "10"],["千葉県", "11"],["東京都", "12"],["神奈川県", "13"],["新潟県", "14"],
+                                                          ["富山県", "15"],["石川県", "16"],["福井県", "17"],["山梨県", "18"],["長野県", "19"],["岐阜県", "20"],["静岡県", "21"],["愛知県", "22"],
+                                                          ["三重県", "23"],["滋賀県", "24"],["京都府", "25"],["大阪府", "26"],["兵庫県", "27"],["奈良県", "28"],["和歌山県", "29"],["鳥取県", "30"],
+                                                          ["島根県", "31"],["岡山県", "32"],["広島県", "33"],["山口県", "34"],["徳島県", "35"],["香川県", "36"],["愛媛県", "37"],["高知県", "38"],
+                                                          ["福岡県", "39"],["佐賀県", "40"],["長崎県", "41"],["熊本県", "42"],["大分県", "43"],["宮崎県", "44"],["鹿児島県", "45"],["沖縄県", "46"]]) 
+      %span 発送までの日数
+      %span{class: "text-required"} 必須
+      = select_tag 'preparation_days', options_for_select([["選択して下さい", ""],["1~2日で発送", "0"], ["2~3日で発送","1"],["4~7日で発送", "2"]])
+
+    .item-price
+      %span 販売価格
+      %span{class: "text-required"} 必須
+      %input{type: "text", class: "price-area" ,placeholder: '¥300~9,999,999'}
+
+    %input{type: "submit", class: "submit-btn"}
+
+
+
+.footer
+  %ul.contents
+    %li.contents__list
+      %h2.title FURIMAについて
+      %ul
+        %li
+          %a{href: "#"} 会社概要（運営会社）
+        %li
+          %a{href: "#"} プライバシーポリシー
+        %li
+          %a{href: "#"} FURIMA利用規約
+        %li
+          %a{href: "#"} ポイントに関する特約
+    %li.contents__list
+      %h2.title  FURIMAを見る
+      %ul
+        %li
+          %a{href: "#"} カテゴリー一覧
+        %li
+          %a{href: "#"} ブランド一覧
+    %li.contents__list
+      %h2.title ヘルプ＆ガイド
+      %ul
+        %li
+          %a{href: "#"} FURIMAガイド
+        %li
+          %a{href: "#"} FURIMAロゴ利用ガイドライン
+        %li
+          %a{href: "#"} お知らせ
+  .footer__logo
+    = link_to image_tag('logo/logo-white.png', alt: '', class: 'footer__logo-white'), '#'
+  %p © FURIMA
