@@ -70,29 +70,38 @@
       %h2.title FURIMAについて
       %ul
         %li
-          %a{href: "#"} 会社概要（運営会社）
+          = link_to root_path do
+            会社概要（運営会社）
         %li
-          %a{href: "#"} プライバシーポリシー
+          = link_to root_path do
+            プライバシーポリシー
         %li
-          %a{href: "#"} FURIMA利用規約
+          = link_to root_path do
+            FURIMA利用規約
         %li
-          %a{href: "#"} ポイントに関する特約
+          = link_to root_path do
+            ポイントに関する特約
     %li.contents__list
       %h2.title  FURIMAを見る
       %ul
         %li
-          %a{href: "#"} カテゴリー一覧
+          = link_to root_path do
+            カテゴリー一覧
         %li
-          %a{href: "#"} ブランド一覧
+          = link_to root_path do
+            ブランド一覧
     %li.contents__list
       %h2.title ヘルプ＆ガイド
       %ul
         %li
-          %a{href: "#"} FURIMAガイド
+          = link_to root_path do
+            FURIMAガイド
         %li
-          %a{href: "#"} FURIMAロゴ利用ガイドライン
+          = link_to root_path do
+            FURIMAロゴ利用ガイドライン
         %li
-          %a{href: "#"} お知らせ
+          = link_to root_path do
+            お知らせ
   .footer__logo
     = link_to image_tag('logo/logo-white.png', alt: '', class: 'footer__logo-white'), '#'
   %p © FURIMA
