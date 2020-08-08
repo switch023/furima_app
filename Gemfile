@@ -73,11 +73,11 @@ group :production do
 end
 
 gem 'mini_racer'
-gem 'haml-rails'
 gem 'devise'
-gem 'font-awesome-sass'
 
 
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'haml-rails'
+gem 'font-awesome-sass'
