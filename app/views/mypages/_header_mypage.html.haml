@@ -3,7 +3,7 @@
     .header--content--main
       %h1.logomark
         = link_to image_tag("logo.png", alt: "ロゴ"), root_path
-      .search
+      .search 
         %form
           %input{type: "text", placeholder:'キーワードから探す'}
           = button_tag type: 'submit', class:"submit" do
