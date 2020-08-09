@@ -1,0 +1,245 @@
+.header
+  .header__top
+    .title
+      .title__main
+        .icon
+          = link_to root_path do
+            = image_tag src ="logo.png", size:"140x40"
+        .form
+          = form_for "#" do |f|
+            = f.text_field :content, class:'search',placeholder: "キーワードから探す"
+            = button_tag type:'submit', class: 'submit_btn' do
+              = icon('fas','search')
+      .title__sub
+        .left-list
+          .categories
+            = link_to "#" do
+              カテゴリー
+          .brands
+            = link_to "#" do
+              ブランド
+        .right-list
+          .login
+            = link_to "#" do
+              ログイン
+          .sign_up
+            = link_to "#" do
+              新規会員登録
+  .header__under
+    .type
+      .type--main
+        %ul
+          %li
+            =link_to "/"do
+              FURIMA
+          %li
+            %i
+              = icon('fa','angle-right')
+          %li
+            =link_to "/"do
+              レディース
+          %li
+            %i
+              = icon('fa','angle-right')
+          %li
+            =link_to "#"do
+              トップス
+          %li
+            %i
+              = icon('fa','angle-right')
+          %li
+            =link_to "#"do
+              Tシャツ/カットソー(半袖なし)
+          %li
+            %i
+              = icon('fa','angle-right')
+          %li
+            product1
+
+
+.main
+  .main__contents
+    .square1
+      .square1__contents
+        .square1__contents--name
+          product1
+        .square1__contents--image1
+          %ul
+            %li
+              = image_tag src ="a007.png", class:"center",size:"540x346"
+              %ul
+                %li
+                  = image_tag src ="a007.png", class:"sub",size:"140x87"
+                %li
+                  = image_tag src ="a001.png", class:"sub",size:"140x87"
+                %li
+                  = image_tag src ="a003.png", class:"sub",size:"140x87"
+      .square1__price
+        %span
+          ¥30000
+        %br/
+        (税込)送料込み
+      .square1__comment
+        デリシャス！
+      .square1__table
+        %table
+          %tr
+            %th 出品者
+            %td hoge
+          %tr
+            %th カテゴリー
+            %td 
+              %a
+                = link_to "#",class: "btn"do
+                  ベビーキッズ
+              %br
+                %a
+                  = link_to "#",class: "btn"do
+                    ベビー服
+              %a
+                = link_to "#",class: "btn"do
+                  アウター
+          %tr
+            %th ブランド
+            %td 
+          %tr
+            %th 商品のサイズ
+            %td 
+          %tr
+            %th 商品の状態
+            %td 未使用に近い
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 発送元の地域
+            %td
+              %a
+                = link_to "#",class: "btn"do
+                  岩手県
+          %tr
+            %th 配送日の目安
+            %td 4-7日で発送
+      .option
+        .option__favorite
+          %ul
+            %h
+              = icon('fa','star')
+              お気に入り 0
+        .option__alert
+          %ul
+            %h
+              = link_to "#",class: "btn"do
+                = icon('fa','flag')
+                不適切な商品の通報
+    .square2
+      .square2__main
+        .square2__main--form
+          = form_for "#" do |f|
+            = f.text_field :content, class:'form'
+        .square2__main__notice
+          .square2__main__notice--comment
+            相手の事を考え、丁寧な言葉を心掛けましょう。
+            %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .square2__main__btn
+          .square2__main__btn--box
+            = link_to "#",class:"comment_btn"do
+              =icon('fa','comment')
+              コメントする
+    .select
+      .select__box
+        .select__box--left
+          = link_to "#",class:"left" do
+            = icon('fa','angle-left')
+            前の商品
+        .select__box--right
+          = link_to "#",class:"right" do
+            後ろの商品
+            = icon('fa','angle-right')
+    .relate
+      .relate__box
+        =link_to "#",class:'a'do
+          ベビー・キッズをもっと見る
+    .products
+      .products__box
+        .products__box--image
+          = link_to '#'do
+            = image_tag src ="IMG_9072.jpg",class:"product-img",size:"150x150"
+            .products__box--body
+              %h1 ee
+              .price
+                %ul 
+                  %li 1000円
+                  %i
+                    = icon('fa','star')
+                    0
+                %p (税込)
+          
+  
+.footer
+  .footer__top
+    .inner
+      .inner__comment1
+        だれでも簡単、人生を変えるフリマアプリ
+      .inner__comment2
+        今すぐ無料ダウンロード！
+      .inner__icon
+        .app
+          = link_to "#"do
+            = image_tag src = "download.png",size:"180x54"
+        .google
+          =link_to "#"do
+            = image_tag src = "images.png",size:"180x54"
+
+  .footer__under
+    .footer__main
+      .footer__main--contents1
+        %ul
+          %h2
+            FURIMAについて
+          %li
+            = link_to "#" ,class: "btn"do
+              会社概要(運営会社)
+              %br
+                = link_to "#",class: "btn"do
+                  プライバシーポリシー
+                %br
+                  = link_to "#",class: "btn"do
+                    FURIMA利用規約
+                  %br
+                    = link_to "#",class: "btn"do
+                      ポイントに関する特約
+      .footer__main--contents2
+        %ul
+          %h2
+            FURIMAを見る
+          %li
+            = link_to "#" ,class: "btn"do
+              カテゴリー一覧
+              %br
+                = link_to "#",class: "btn"do
+                  ブランド一覧
+      .footer__main--contents3
+        %ul
+          %h2
+            ヘルプ＆ガイド
+          %li
+            = link_to "#" ,class: "btn"do
+              FURIMAガイド
+              %br
+                = link_to "#",class: "btn"do
+                  FURIMAロゴ利用ガイドライン
+                %br
+                  = link_to "#",class: "btn"do
+                    お知らせ
+    .footer__icon1
+      =link_to "#"do
+        = image_tag src ="logo-white.png", size:"160x46"
+    .footer__icon2
+      %p ©️ FURIMA
+.purchaseBtn
+  .purchaseBtn__icon
+    = link_to "#" do
+      %i 出品する
+      = image_tag src ="icon_camera.png", size:"54x54"
+
