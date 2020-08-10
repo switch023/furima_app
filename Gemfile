@@ -72,6 +72,10 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'mini_racer'
+gem 'devise'
+
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
