@@ -77,9 +77,12 @@ top_page
  gem 'jquery-rails'
  gem 'devise'
 
+gem 'mini_racer'
+gem 'devise'
+
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'haml-rails'
 gem 'font-awesome-sass'
-master
