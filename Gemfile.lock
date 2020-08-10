@@ -109,10 +109,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
-    execjs (2.7.0)
-    ffi (1.13.1)
-    font-awesome-sass (5.12.0)
-      sassc (>= 1.11)
     erubis (2.7.0)
     excon (0.75.0)
     execjs (2.7.0)
@@ -321,13 +317,13 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  mini_racer
   fog-aws
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick
+  mini_racer
   mysql2 (>= 0.4.4, < 0.6.0)
   pry-rails
   puma (~> 3.11)
