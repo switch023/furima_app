@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 ## users table
 |Column|Type|Options|
 |------|----|-------|
