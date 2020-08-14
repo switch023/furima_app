@@ -72,6 +72,7 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'devise'
 gem 'mini_racer'
 gem 'devise'
 

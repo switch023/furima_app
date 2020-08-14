@@ -1,3 +1,4 @@
+
 /*!
  * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
  * http://cssreset.com
@@ -44,6 +45,7 @@ p,
 blockquote,
 th,
 td {
+
   margin:0;
   padding:0;
 }
@@ -67,18 +69,22 @@ em,
 strong,
 th,
 var {
+
   font-style:normal;
   font-weight:normal;
 }
 
 ol,
 ul {
+
   list-style:none;
 }
 
 caption,
 th {
+
   text-align:left;
+
 }
 h1,
 h2,
@@ -86,6 +92,7 @@ h3,
 h4,
 h5,
 h6 {
+
   font-size:100%;
   font-weight:normal;
 }
@@ -104,10 +111,12 @@ sup {
 }
 sub {
   vertical-align:text-bottom;
+
 }
 input,
 textarea,
 select {
+
   font-family:inherit;
   font-size:inherit;
   font-weight:inherit;
@@ -123,4 +132,5 @@ legend {
   color:#000;
 }
 /* YUI CSS Detection Stamp */
-#yui3-css-stamp.cssreset { display: none; }
+
+yui3-css-stamp.cssreset { display: none; }
