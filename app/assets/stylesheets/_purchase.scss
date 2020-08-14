@@ -1,0 +1,124 @@
+// Place all the styles related to the purchase controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header{
+  background-color: #f8f8f8;
+  &--logo{
+    padding-top: 20px;
+    text-align: center;
+    &__main{
+      height: 60px;
+      width: 200px;
+    }
+  }
+}
+.main{
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  .purchase{
+    margin: 40px 0px;
+    width: 700px;
+    height:774px;
+    background-color:white;
+     &--main{
+      padding: 32px 16px;
+      max-width: 400px;
+      margin: 40px auto;
+      &__title{
+        text-align: center;
+        margin: 40px 0px;
+        h1{
+          font-family: 
+          Arial,游ゴシック体,YuGothic,メイリオ,
+          Meiryo,sans-serif;
+          font-size: 25px;
+          font-weight: 600;   
+        }
+      }
+      &__product{
+        display: flex;
+        margin: 0px auto;
+        justify-content: space-between;
+        &__picture{
+          
+        }
+        &__explanation{
+          float: left;
+          width:100%;
+          margin-left: 16px;
+          font-size:15px;
+          line-height: 1.4em;
+          .price{
+            margin-top: 8px;
+            text-align: right;
+            font-size:15px;
+            &--main{
+              font-size: 15px;
+              font-weight: 600;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+      &__pay{
+        display: flex;
+        margin: 60px auto;
+        justify-content: space-between;
+
+        .pay--money{
+          font-size:24px;
+          font-weight: 600;
+        }
+
+        .pay--price{
+          font-size: 24px;
+          font-weight: 600;
+        }  
+      }
+      &__method{
+        margin: 40px 0px;
+        &__pay{
+          font-size: 14px;
+          font-weight: 600;
+          margin-top:20px;
+        }
+        &__register{ 
+          font-size: 14px;
+          color:#0095ee;
+          text-decoration: none;
+          padding-bottom:20px;
+        }
+      }
+
+      &__delivery{
+        margin: 40px 0px;
+
+        &__place{
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        &__method{
+          color:#0095ee;
+          text-decoration: none;
+        }
+      }
+      form{
+        margin-top: 120px;
+        input{
+          display: flex;
+          justify-content: center;
+          margin:0px auto;
+          background-color: #3CCACE;
+          color: #fff;
+          height:48px;
+          width: 343px;
+          border: 1px solid #ccc;
+          font-size: 20px;         
+        }
+      }
+    }
+  }
+}
