@@ -8,7 +8,7 @@
   background-color: white;
   display: flex;
   justify-content: center;
-  .header__logo {
+  .header__logo-new {
     padding-top: 20px;
     &-main {
       height: 60px;
@@ -60,6 +60,10 @@
     }
     .item-content {
       padding: 10px 20px;
+      .item__name{
+        height: 48px;
+        width: 660px;
+      }
       .content-area{
         height: 154px;
         width: 660px;
@@ -67,6 +71,10 @@
     }
     .item-detail{
       padding: 10px 20px;
+      .brand__name{
+        height: 48px;
+        width: 660px;
+      }
       #category_id {
         height: 48px;
         width: 660px;
@@ -97,6 +105,10 @@
     }
     .item-price {
       padding: 10px 20px;
+      .price-area {
+        height: 48px;
+        width: 660px;
+      }
     }
     .submit-btn {
       background-color: #3ccace;
