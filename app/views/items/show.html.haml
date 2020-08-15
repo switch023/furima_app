@@ -1,11 +1,11 @@
-.header
-  .header__top
+.head
+  .head__top
     .title
       .title__main
         .icon
           = link_to root_path do
             = image_tag src ="logo.png", size:"140x40"
-        .form
+        .form__contents
           = form_for "#" do |f|
             = f.text_field :content, class:'search',placeholder: "キーワードから探す"
             = button_tag type:'submit', class: 'submit_btn' do
@@ -25,7 +25,7 @@
           .sign_up
             = link_to "#" do
               新規会員登録
-  .header__under
+  .head__under
     .type
       .type--main
         %ul
@@ -174,8 +174,8 @@
                 %p (税込)
           
   
-.footer
-  .footer__top
+.footer1
+  .footer1__top
     .inner
       .inner__comment1
         だれでも簡単、人生を変えるフリマアプリ
@@ -189,7 +189,7 @@
           =link_to "#"do
             = image_tag src = "images.png",size:"180x54"
 
-  .footer__under
+  .footer1__under
     .footer__main
       .footer__main--contents1
         %ul
