@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  resources :signup, only: [:index]
+  root to: 'items#index'
+  resources :items, only: [:new, :create, :show]
   devise_for :users
-  root 'items#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :card, only: [:new, :show]
+  resources :mypages, only: [:index]
 end

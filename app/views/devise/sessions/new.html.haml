@@ -1,13 +1,14 @@
-= image_tag "logo.png",size: "180x60", alt: ""
+.top-image
+  = image_tag "logo.png",size: "180x60", alt: "" ,class:"text-center"
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :メールアドレス
-    %span 必須
+    %spanclass 必須
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
     = f.label :パスワード
-    %span 必須
+    %spanclass 必須
     %br/
     = f.password_field :password, autocomplete: "current-password"
   - if devise_mapping.rememberable?
