@@ -28,6 +28,7 @@
       = select_tag 'category_id', options_for_select([["選択して下さい", ""],["メンズ", "0"],["レディース", "1"],["ベビーキッズ", "2"]])
 
       %span ブランド
+      %span{class: "text-any"} 任意
       %input{type: "text", class: "brand__name" ,placeholder: 'ブランド名'}
 
       %span 商品の状態
