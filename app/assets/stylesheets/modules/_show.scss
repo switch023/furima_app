@@ -358,7 +358,7 @@
 
 .footer1{
   &__top{
-    background-image: url(/assets/Banner-pict.jpg);
+    background-image: image-url("Banner-pict.jpg");
     position: relative;
     background-position: center;
     background-size: cover;
