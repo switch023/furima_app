@@ -1,0 +1,36 @@
+.header
+  .header--logo
+    = link_to image_tag('logo/logo.png', alt: '', class: 'header--logo__main'), root_path
+.mainbox
+  .purchase
+    .purchase--main
+      .purchase--main__title
+        %h1　購入内容の確認
+      .purchase--main__product
+        .purchase--main__product__picture
+          = image_tag(image_path('pict-reason-02.jpg'),width:"80",height:"80")
+        .purchase--main__product__explanation
+          %p 商品説明
+          %p.price
+            %span
+              送料込み(税込み)
+            %span.price--main
+              ¥14,000円
+      .purchase--main__pay
+        %span.pay--money
+          支払い金額
+        %span.pay--price
+          ¥14,000円
+      .purchase--main__method
+        %h3.purchase--main__method__pay
+          支払い方法
+        = link_to "#",class: "purchase--main__method__register" do
+          登録してください
+      .purchase--main__delivery
+        %h3.purchase--main__delivery__place
+          配送先
+        = link_to "#", class: "purchase--main__delivery__method" do
+          配送方法
+      %form
+        = submit_tag "購入する" 
+= render "mypages/footer_mypage"    

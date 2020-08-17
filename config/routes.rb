@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :card, only: [:new, :show]
   resources :mypages, only: [:index]
+  resources :purchase, only: [:new]
 end
