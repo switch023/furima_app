@@ -1,18 +1,18 @@
 class CreateItems < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
-      t.string          :name, null :false
-      t.text            :introduction, null :false
-      t.integer         :price, null :false
-      t.references      :brand, foregin_key :true
-      t.references      :category, null :false, foregin_key :true
-      t.references      :item_condetion, null :false, foregin_key :true
-      t.references      :postage_payer, null :false, foregin_key :true
-      t.references      :prefecture_code, null :false, foregin_key :true
-      t.references      :preparation_day, null :false, foregin_key :true
-      t.references      :postage_type, null :false, foregin_key :true
-      t.references      :buyer, foregin_key :true
-      t.references      :seller, null :false, foregin_key :true
+      t.string          :name, null: false 
+      t.text            :introduction, null: false
+      t.integer         :price, null: false
+      t.references      :brand, foregin_key: true
+      t.references      :category, null: false, foregin_key: true
+      t.references      :item_condetion, null: false, foregin_key: true
+      t.references      :postage_payer, null: false, foregin_key: true
+      t.references      :prefecture_code, null: false, foregin_key: true
+      t.references      :preparation_day, null: false, foregin_key: true
+      t.references      :postage_type, null: false, foregin_key: true
+      t.references      :buyer, foregin_key: true
+      t.references      :seller, null: false, foregin_key: true
       t.timestamps
     end
   end
