@@ -1,2 +1,1 @@
 class Item < ApplicationRecord
-end
