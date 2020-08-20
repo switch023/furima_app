@@ -16,5 +16,6 @@ class Prefecture_code < ActiveHash::Base
     {id: 43, prefecturecode: '熊本県'}, {id: 44, prefecturecode: '大分県'}, {id: 45, prefecturecode: '宮崎県'},
     {id: 46, prefecturecode: '鹿児島県'}, {id: 47, prefecturecode: '沖縄県'}
   ]
+  include ActiveHash::Associations
+  has_many :items
 end
-prefecture_code
