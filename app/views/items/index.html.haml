@@ -87,11 +87,13 @@
   .pick_up__category
     %h1 ピックアップカテゴリー
     %h2.color 新規投稿商品
-    = render "/layouts/products"
+    - @items.each do |item|
+      = render "/layouts/products"
   .pick_up__brand
     %h1 ピックアップブランド
     %h2.color アーカイバ
-    = render "/layouts/products"
+    - @items.each do |item|
+      = render "/layouts/products"
 
 = render "/layouts/content_download"
 = render "/layouts/footer"
