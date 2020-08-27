@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_124809) do
     t.integer "price", null: false
     t.bigint "brand_id"
     t.bigint "category_id", null: false
-    t.bigint "item_condetion_id", null: false
+    t.bigint "item_condition_id", null: false
     t.bigint "postage_payer_id", null: false
     t.bigint "prefecture_code_id", null: false
     t.bigint "preparation_day_id", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_124809) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["item_condetion_id"], name: "index_items_on_item_condetion_id"
+    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
     t.index ["prefecture_code_id"], name: "index_items_on_prefecture_code_id"

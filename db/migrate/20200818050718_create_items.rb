@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer         :price, null: false
       t.references      :brand, foregin_key: true
       t.references      :category, null: false, foregin_key: true
-      t.references      :item_condetion, null: false, foregin_key: true
+      t.references      :item_condition, null: false, foregin_key: true
       t.references      :postage_payer, null: false, foregin_key: true
       t.references      :prefecture_code, null: false, foregin_key: true
       t.references      :preparation_day, null: false, foregin_key: true
