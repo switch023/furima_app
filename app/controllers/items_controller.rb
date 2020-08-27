@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only: [:index,:show]
+  before_action :set_items,only: [:index,:show]
   def index
   end
 
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name)
   end
 
-  def set_item
+  def set_items
     @items = Item.all
   end
 
