@@ -1,0 +1,9 @@
+= render "header_mypage"
+.logout
+  .wrapper
+    = render "side_mypage"
+  .logout--page
+    .logout--page__name
+      = form_tag('root_path') do
+        = submit_tag "ログアウト"    
+= render "footer_mypage"
