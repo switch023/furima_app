@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 2020_08_22_063448) do
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "items_id", null: false
+    t.bigint "item_id", null: false
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["items_id"], name: "index_item_images_on_items_id"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

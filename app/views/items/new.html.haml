@@ -3,67 +3,56 @@
     = link_to image_tag('logo/logo.png', alt: '', class: 'header__logo-new-main'), '#'
 
 .form
-  %form.input__box
-    .item-image
-      %span 出品画像 
-      %span{class: "text-required"} 必須
-      .item-image__box
-        %label
-          .label__box
-            %input{type: "file", class: "image-file"}/
-            = icon('fas', 'camera')
+  = form_for @item do |f|
+    .input__box
+      .item-image
+        %span 出品画像 
+        %span{class: "text-required"} 必須
+        .item-image__box
+          = f.fields_for :item_images do |i| 
+            = i.file_field :url
 
     .item-content
       %span 商品名
       %span{class: "text-required"} 必須
-      %input{type: "text", class: "item__name", placeholder: '40文字まで'}
+      = f.text_field :name, class: "item__name",  placeholder: "商品名（必須 40文字まで)"
 
       %span 商品の説明
       %span{class: "text-required"} 必須
-      %textarea{id: "item_content", class:"content-area", placeholder: "色・素材・重さ・定価・注意点などを記載しましょう(1000文字まで)"}
+      = f.text_field :introduction, class: "content-area", placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
     .item-detail
       %span カテゴリ
       %span{class: "text-required"} 必須
-      = select_tag 'category_id', options_for_select([["選択して下さい", ""],["メンズ", "0"],["レディース", "1"],["ベビーキッズ", "2"]])
-
+      = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {  class: "item-category-form", id: 'parent_category'}
+ 
       %span ブランド
-      %span{class: "text-any"} 任意
-      %input{type: "text", class: "brand__name" ,placeholder: 'ブランド名'}
+      = f.text_field :brand_id, class: "brand__name",  placeholder: "ブランド名"
 
       %span 商品の状態
       %span{class: "text-required"} 必須
-      = select_tag 'item_condition', options_for_select([["選択して下さい", ""], ["新品未使用","0"], ["未使用に近い","1"], ["目立った傷汚れなし","2"], ["やや傷汚れあり", "3"], ["傷汚れあり","4"], ["全体的に状態が悪い","4"]])
+      = f.collection_select :item_condition_id, ItemCondition.all, :id, :itemcondition
 
     .item-delibary
       %span 送料の負担
       %span{class: "text-required"} 必須
-      = select_tag 'postage_payer', options_for_select([["選択して下さい", ""],["送料込み(出品者負担)","0"], ["着払い(購入者負担)", "1"]]) 
+      = f.collection_select :postage_payer_id, PostagePayer.all, :id, :postagepayer
       %span 発送元の地域
       %span{class: "text-required"} 必須
-      = select_tag 'prefecture_code', options_for_select([["選択して下さい", ""],["北海道", "0"],["青森県", "1"],["岩手県", "2"],["宮城県", "3"],["秋田県", "4"],["山形県", "5"],["福島県", "6"],
-                                                          ["茨城県", "7"],["栃木県", "8"],["群馬県", "9"],["埼玉県", "10"],["千葉県", "11"],["東京都", "12"],["神奈川県", "13"],["新潟県", "14"],
-                                                          ["富山県", "15"],["石川県", "16"],["福井県", "17"],["山梨県", "18"],["長野県", "19"],["岐阜県", "20"],["静岡県", "21"],["愛知県", "22"],
-                                                          ["三重県", "23"],["滋賀県", "24"],["京都府", "25"],["大阪府", "26"],["兵庫県", "27"],["奈良県", "28"],["和歌山県", "29"],["鳥取県", "30"],
-                                                          ["島根県", "31"],["岡山県", "32"],["広島県", "33"],["山口県", "34"],["徳島県", "35"],["香川県", "36"],["愛媛県", "37"],["高知県", "38"],
-                                                          ["福岡県", "39"],["佐賀県", "40"],["長崎県", "41"],["熊本県", "42"],["大分県", "43"],["宮崎県", "44"],["鹿児島県", "45"],["沖縄県", "46"]]) 
-      %span 発送までの日数
+      = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :prefecturecode
+      %span 発送までの日数 
       %span{class: "text-required"} 必須
-      = select_tag 'preparation_days', options_for_select([["選択して下さい", ""],["1~2日で発送", "0"], ["2~3日で発送","1"],["4~7日で発送", "2"]])
-
+      = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparationday
       %span 発送方法
       %span{class: "text-required"} 必須
-      = select_tag 'postage_type', options_for_select([["選択して下さい", ""],["レターパックライト", "0"], ["ネコポス","1"],["ゆうパケット", "2"],["日本郵便", "2"],
-                                                       ["ヤマト便", "2"]])
+      = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype
 
     .item-price
       %span 販売価格
       %span{class: "text-required"} 必須
-      %input{type: "text", class: "price-area" ,placeholder: '¥300~9,999,999'}
+      = f.text_field :price, class: "price-area", placeholder:"例）¥300~9,999,999"
 
     %input{type: "submit", class: "submit-btn"}
-
-
 
 .footer
   %ul.contents
@@ -106,3 +95,13 @@
   .footer__logo
     = link_to image_tag('logo/logo-white.png', alt: '', class: 'footer__logo-white'), '#'
   %p © FURIMA
+
+
+
+ 
+
+
+ 
+
+
+
