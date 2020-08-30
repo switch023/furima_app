@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection do
       get :logout
     end
+
   end
   resources :purchase, only: [:new]
+  resources :send_informations, only: [:new, :create]
 end

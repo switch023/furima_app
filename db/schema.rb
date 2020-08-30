@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_063448) do
+ActiveRecord::Schema.define(version: 2020_08_28_060615) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -58,6 +58,23 @@ ActiveRecord::Schema.define(version: 2020_08_22_063448) do
     t.index ["prefecture_code_id"], name: "index_items_on_prefecture_code_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "send_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "send_first_name", null: false
+    t.string "send_family_name", null: false
+    t.string "send_first_name_kana", null: false
+    t.string "send_family_name_kana", null: false
+    t.integer "post_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.integer "phone_number", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_send_informations_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

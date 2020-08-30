@@ -1,0 +1,53 @@
+.main--mypage
+  .main--title
+    %h3.main--title__content
+      さんのマイページ
+    .main--item
+      .main--item__head
+        %h3.main--title
+          送付元・お届け先住所変更
+      .main--item__body
+        = form_for @send_information do |f|
+          %p
+            お名前(全角)
+            %spanclass 必須
+          = f.text_field :send_first_name, class: "login-input-text", placeholder: "例)山田"
+          .contents__form
+          = f.text_field :send_family_name, class: "login-input-text", placeholder: "例)太郎"
+          .contents__form
+          %p
+            お名前(カナ)
+            %spanclass 必須
+          = f.text_field :send_first_name_kana, class: "login-input-text", placeholder: "例)ヤマダ"
+          .contents__form
+          = f.text_field :send_family_name_kana, class: "login-input-text", placeholder: "例)タロウ"
+          .contents__form
+          %p
+            郵便番号
+            %spanclass 必須
+          = f.text_field :post_code, class: "login-input-text", placeholder: "例)000-0000"
+          .contents__form
+          %p
+            都道府県
+            %spanclass 必須
+          = f.text_field :prefecture, class: "login-input-text", placeholder: "例)東京都"
+          .contents__form
+          %p
+            市区町村
+            %spanclass 必須
+          = f.text_field :city, class: "login-input-text", placeholder: "例)渋谷区"
+          .contents__form
+          %p
+            番地
+            %spanclass 必須
+          = f.text_field :address, class: "login-input-text", placeholder: "例)神宮前1-1"
+          .contents__form
+          %p
+            マンション名、部屋番号(任意)
+          = f.text_field :building_name, class: "login-input-text", placeholder: "例)DIVハイツ101号"
+          .contents__form
+          %p
+            お届け先の電話番号(任意)
+          = f.text_field :phone_number, class: "login-input-text", placeholder: "例)00-0000-0000"
+          %p
+          = f.submit "変更する", class: "change-btn"
