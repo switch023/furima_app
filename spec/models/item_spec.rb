@@ -2,11 +2,18 @@ require 'rails_helper'
 
 describe Item do
   describe '#create' do
+    it "item_imageが無い場合は登録できないこと" do
+      item = build(:item)
+      item.valid?
+      expect(item.errors[:item_images]).to include("can't be blank")
+    end
+
     it "nameが無い場合は登録できないこと" do
       item = build(:item, name: nil)
       item.valid?
       expect(item.errors[:name]).to include("can't be blank")
     end
+
     it "nameが40文字を超える場合は登録できないこと" do
       item = build(:item, name: "a" * 41)
       item.valid?
@@ -18,6 +25,7 @@ describe Item do
       item.valid?
       expect(item.errors[:introduction]).to include("can't be blank")
     end
+
     it "introductionが40文字を超える場合は登録できないこと" do
       item = build(:item, introduction: "a" * 1001)
       item.valid?
@@ -76,10 +84,17 @@ describe Item do
       item.valid?
       expect(item.errors[:price]).to include("must be less than or equal to 9999999")
     end
+
     it "seller_idが無い場合は登録できないこと" do
       item = build(:item, seller_id: nil)
       item.valid?
       expect(item.errors[:seller_id]).to include("can't be blank")
+    end
+
+    it "全てを満たせば登録できること" do
+      item_image = build(:item_image)
+      item = build(:item, item_images:[item_image])
+      expect(item).to be_valid
     end
   end
 end
