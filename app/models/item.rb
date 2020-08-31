@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_one :user_evaluation
   belongs_to :category
   belongs_to :buyer, class_name: "User", optional: true
-  belongs_to :seller, class_name:"User",  foreign_key: 'seller_id'
+  belongs_to :seller, class_name:"User", foreign_key: 'seller_id'
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :item_condition
