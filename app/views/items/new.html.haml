@@ -27,7 +27,7 @@
       = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {  class: "item-category-form", id: 'parent_category'}
  
       %span ブランド
-      = f.text_field :brand_id, class: "brand__name",  placeholder: "ブランド名"
+      = f.text_field :brand, class: "brand__name",  placeholder: "ブランド名"
 
       %span 商品の状態
       %span{class: "text-required"} 必須

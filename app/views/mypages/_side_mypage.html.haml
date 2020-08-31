@@ -3,23 +3,23 @@
   %h2.side--title
     マイページ
   %ul.side--menu
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         商品を出品する
     %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         出品した商品
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         購入した商品
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         最近見た商品
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         クレジットカード登録・変更
-    %li.side--menu__list<
-      = link_to destroy_user_session_path ,{class:"side--menu__list--item"} do
+    %li.side--menu__list
+      = link_to destroy_user_session_path, method: "delete"  do
         ログアウト
 
   %h2.side--title
@@ -28,9 +28,9 @@
     %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         メール・パスワード変更
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         本人情報
-    %li.side--menu__list<
+    %li.side--menu__list
       = link_to '#',{class:"side--menu__list--item"} do
         電話番号の確認
