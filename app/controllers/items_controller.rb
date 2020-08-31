@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
   def index
     if user_signed_in?
-      @user =User.find(current_user.id)
+      current_user.id
     end
   end
 
