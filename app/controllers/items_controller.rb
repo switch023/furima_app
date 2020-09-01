@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
   def index
-    if user_signed_in?
-    end
   end
 
   def new
