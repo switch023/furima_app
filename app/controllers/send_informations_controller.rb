@@ -6,7 +6,12 @@ class SendInformationsController < ApplicationController
 
   def create
     SendInformation.create(send_information_params)
-    redirect_to = mypage_path
+    redirect_to = mypages_path
+  end
+
+  def update
+    send_information = SendInformation.find(params[:id])
+    SendInformation.update(send_information_params)
   end
 
   private

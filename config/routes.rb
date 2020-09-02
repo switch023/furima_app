@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   end
   resources :purchase, only: [:new]
-  resources :send_informations, only: [:new, :create]
+  resources :send_informations, only: [:new, :create, :update]
 end
