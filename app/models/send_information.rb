@@ -1,4 +1,5 @@
 class SendInformation < ApplicationRecord
-  belongs_to :user
-  validates :send_first_name,:send_family_name,:send_first_name_kana,:send_family_name_kana,:post_code,:prefecture, :city, :address,:phone_number,:user_id,presence: true
+  belongs_to :user, optional: true
+  validates :send_first_name,:send_family_name,:send_first_name_kana,:send_family_name_kana,:post_code,:prefecture, :city, :address,:user_id,presence: true
+  validates :phone_number,presence: true,uniqueness:true
 end

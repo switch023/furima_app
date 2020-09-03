@@ -2,7 +2,6 @@ require 'rails_helper'
 describe SendInformation do
   describe '#create' do
     it "send_first_nameがない場合は登録できないこと" do
-      
       send_information = build(:send_information,send_first_name:nil)
       send_information.valid?
       expect(send_information.errors[:send_first_name]).to include("can't be blank")
@@ -54,7 +53,7 @@ describe SendInformation do
     end
     it " 重複したphone_numberが存在する場合は登録できないこと " do
       send_information = create(:send_information)
-      another_send_information = build(:send_information, phone_number: send_information.phone_number)
+      another_send_information = build(:send_information, phone_number:send_information.phone_number)
       another_send_information.valid?
       expect(another_send_information.errors[:phone_number]).to include("has already been taken")
     end
