@@ -2,8 +2,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  # 画像の縦横比を維持したまま、縦横を800px以内にリサイズする
-  process resize_to_fit: [800, 800]
+  # 画像の縦横比を維持したまま、縦横を300px以内にリサイズする
+  process resize_to_fit: [300, 300]
   # Choose what kind of storage to use for this uploader:
   # storage :file
   storage :fog
