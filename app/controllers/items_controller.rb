@@ -12,11 +12,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @parents = Category.where(ancestry: nil)
-    if @item.save!
-      flash[:success] = "ユーザを登録しました"
+    if @item.save
       redirect_to root_path
     else
-      flash[:danger] = "ユーザの登録に失敗しました"
+      @item.item_images.new
       render :new
     end
   end
