@@ -1,4 +1,5 @@
 @import "reset";
+@import "config/colors";
 @import "modules/signup";
 @import "modules/new";
 @import "items";
@@ -11,6 +12,7 @@
 @import "modules/sellbutton";
 @import "purchase";
 @import "card";
+@import "modules/flash";
 // @import "modules/messages";
 // @import "slick-theme"; 
 // @import "slick"; 
