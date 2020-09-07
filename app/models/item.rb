@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_many :favorites
   has_many :item_images, dependent: :destroy
   has_one :user_evaluation
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :buyer, class_name: "User", optional: true
   belongs_to :seller, class_name:"User", foreign_key: 'seller_id',optional: true
 

@@ -1,4 +1,3 @@
----
 ja:
   activerecord:
     errors:
@@ -117,11 +116,11 @@ ja:
       even: は偶数にしてください
       exclusion: は予約されています
       greater_than: は%{count}より大きい値にしてください
-      greater_than_or_equal_to: は%{count}以上の値にしてください
+      greater_than_or_equal_to: は￥%{count}以上の価格にしてください
       inclusion: は一覧にありません
       invalid: は不正な値です
       less_than: は%{count}より小さい値にしてください
-      less_than_or_equal_to: は%{count}以下の値にしてください
+      less_than_or_equal_to: は￥%{count}以下の価格にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
