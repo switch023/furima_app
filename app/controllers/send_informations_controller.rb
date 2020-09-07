@@ -15,9 +15,8 @@ class SendInformationsController < ApplicationController
   end
 
   def update
-    send_information = SendInformation.find(params[:id])
-    SendInformation.update(send_information_params)
-    if @send_information.save
+    @send_information = SendInformation.find(params[:id])
+    if @send_information.update(send_information_params)
       redirect_to mypages_path(@send_information), notice:'送付情報が登録されました'
     else
       flash.now[:alert] = '送付情報を入力してください。'
