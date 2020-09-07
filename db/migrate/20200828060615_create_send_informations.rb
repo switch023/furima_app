@@ -10,7 +10,7 @@ class CreateSendInformations < ActiveRecord::Migration[5.2]
       t.string        :city,null:false
       t.string        :address,null:false
       t.string        :building_name
-      t.integer       :phone_number,null:false,unique:true
+      t.integer       :phone_number
       t.references    :user,null:false,foregin_key:true
       t.timestamps
     end

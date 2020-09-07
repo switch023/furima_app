@@ -5,13 +5,24 @@ class SendInformationsController < ApplicationController
   end
 
   def create
-    SendInformation.create(send_information_params)
-    redirect_to = mypages_path
+    @send_information = SendInformation.new(send_information_params)
+    if @send_information.save
+      redirect_to mypages_path(@send_information), notice:'送付情報が登録されました'
+    else
+      flash.now[:alert] = '送付情報を入力してください。'
+      render :new
+    end
   end
 
   def update
     send_information = SendInformation.find(params[:id])
     SendInformation.update(send_information_params)
+    if @send_information.save
+      redirect_to mypages_path(@send_information), notice:'送付情報が登録されました'
+    else
+      flash.now[:alert] = '送付情報を入力してください。'
+      render :new
+    end
   end
 
   private
@@ -20,4 +31,3 @@ class SendInformationsController < ApplicationController
   end
 
 end
- 
