@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   root to: 'items#index'
   resources :items, only: [:new, :create, :show]
   devise_for :users
-  resources :card, only: [:new, :show]
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+    end
+  end
   resources :mypages, only: [:index] do
     collection do
       get :logout

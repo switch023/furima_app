@@ -6,9 +6,9 @@
     .card--main__title
       %h2
         クレジットカード情報入力
-    %form
+    = form_tag(pay_card_index_path, id: 'charge-form', method: :post,  name: "inputForm") do
       %label カード番号
-      = text_field_tag "number", "", class: "card--number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text"
+      = text_field_tag "number", "", class: "card--number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "pay_number"
       %br
       .card--image
         = image_tag(image_path('credit-card/credit-card_1.png'),width:"44",height:"30")
@@ -19,7 +19,7 @@
           
       %label 有効期限
       %br
-      %select{name: "exp_month", type: "text", class: "month"}
+      %select{name: "exp_month", type: "text", class: "month", id: "pay_exp_month"}
         %option{value: ""} --
         %option{value: "1"}01
         %option{value: "2"}02
@@ -34,7 +34,7 @@
         %option{value: "11"}11
         %option{value: "12"}12
       %span 月/
-      %select{name: "exp_year", type: "text", class: "year"}
+      %select{name: "exp_year", type: "text", class: "year", id: "pay_year"}
         %option{value: ""} --
         %option{value: "2019"}19
         %option{value: "2020"}20
@@ -50,7 +50,7 @@
       %span 年
       %br
       %label セキュリティコード
-      = text_field_tag "cvc", "", class: "card--cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+      = text_field_tag "cvc", "", class: "card--cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "pay_cvc"
       %br
-      = submit_tag "登録する" , class: "card--submit"
+      = submit_tag "登録する" , class: "card--submit", id: "pay_submit"
 = render "mypages/footer_mypage"
