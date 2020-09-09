@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show]
   devise_for :users
   resources :card, only: [:new, :show]
+  resources :card, only: [:new, :show, :create, :destroy]
   resources :mypages, only: [:index] do
     collection do
       get :logout

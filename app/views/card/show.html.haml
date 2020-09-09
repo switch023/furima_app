@@ -1,2 +1,26 @@
-%h1 Card#show
-%p Find me in app/views/card/show.html.haml
+.users-main
+  .right-contents
+
+    .card-show
+      .card-show__content
+        .card-show__content__title
+          %span クレジットカード情報
+        .card-list
+          .card-list__info
+            .card-list__info__title
+              登録カード一覧
+            .card-list__info__inner
+              .card-list__info__inner__brand
+                .image2 
+                  =image_tag src="/assets/mastercard.gif", height:"60px",width:"60px"
+              .card-list__info__inner__number
+                = "**** **** **** " + "0505"
+              .card-list__info__inner__expiration
+                .card-list__info__inner__expiration__title
+                  有効期限  10 / 5
+                .card-list__info__inner__expiration__date
+                  //=  
+          .destroy-function
+            .destroy-function__link
+              = link_to card_path, method: :delete, class: "destroy-function__link__btn" do
+                カードを削除する
