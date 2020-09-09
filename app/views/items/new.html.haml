@@ -58,7 +58,7 @@
       
       %span 発送方法
       %span{class: "text-required"} 必須
-      = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype
+      = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype,{include_blank: "選択して下さい"}
 
     .item-price
       %span 販売価格
