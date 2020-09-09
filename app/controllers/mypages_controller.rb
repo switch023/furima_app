@@ -4,4 +4,8 @@ class MypagesController < ApplicationController
 
   def logout
   end
+
+  def send_informations
+  end
+
 end

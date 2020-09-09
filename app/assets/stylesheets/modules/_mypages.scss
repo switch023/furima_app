@@ -113,14 +113,24 @@
         border-top-left-radius: 3px;
         background-color: #3CCACE;
         color: #fff;
-        width: 100vh;
       }
 
-      &__body{
-        height:800px;
+      &__body2{
+        height:1000px;
         width: 100vh;
         border-color: #fff;
         background-color: white;
+        text-align: center;
+        padding: 30px 200px;
+        .change-btn{
+          margin-top: 20px;
+          width: 390px;
+          color: #fff;
+          height: 50px;
+          background-color: #3CCACE;
+          border-radius: 3px;
+          border: 1px none #fff;
+        }
       }
     }
   }
@@ -129,7 +139,7 @@
     margin: 40px 40px 40px 40px;
     background-color: white;
     width: 400px;
-    height: 580px;
+    height: 630px;
 
     &--title{
       line-height: 1.5;
