@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
+  before_action :set_item,only: [:show, :edit, :update]
   def index
   end
 
@@ -21,8 +22,20 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+
 
   private
   def item_params
@@ -33,5 +46,8 @@ class ItemsController < ApplicationController
 
   def set_items
     @items = Item.all
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

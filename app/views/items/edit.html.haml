@@ -11,17 +11,24 @@
       %span{class: "text-file"}最大5枚まで画像登録できます
       .post__drop__box__container
         .preview-content
+          - @item.item_images.each do |image|
+            .preview-box
+              .upper-box
+                = image_tag image.url.url, width: "112", height: "112", alt: "preview"
+              .lower-box
+                .delete-box
+                  %span 削除
         .label-content
-          %label{for: "item_item_images_attributes_0_url", class: "label-box", id: "label-box--0"}
+          = f.label :"item_images_attributes_#{@item.item_images.length}_url", class: "label-box", id: "label-box--#{@item.item_images.length}" do
             %pre.label-box__text-visible
               = icon('fas', 'camera')
         .hidden-content
           = f.fields_for :item_images do |i|
             = i.file_field :url, class: "hidden-field"
-            %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
-            %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
-            %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
-            %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
+            = i.check_box:_destroy, class: "hidden-checkbox"
+
+          - @item.item_images.length.upto(4) do |i|
+            %input{name: "item[item_images_attributes][#{i}][url]", id: "item_item_images_attributes_#{i}_url", class:"hidden-field", type:"file"}
 
     .item-content
       %span 商品名
@@ -58,14 +65,14 @@
       
       %span 発送方法
       %span{class: "text-required"} 必須
-      = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype,{include_blank: "選択して下さい"}
+      = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype
 
     .item-price
       %span 販売価格
       %span{class: "text-required"} 必須
       = f.text_field :price, class: "price-area", placeholder:"例）¥300~9,999,999"
 
-    = f.submit '出品する', class: 'submit-btn'
+    = f.submit '更新する', class: 'submit-btn'
 
 .footer
   %ul.contents
