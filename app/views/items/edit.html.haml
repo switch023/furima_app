@@ -29,12 +29,6 @@
 
           - @item.item_images.length.upto(4) do |i|
             %input{name: "item[item_images_attributes][#{i}][url]", id: "item_item_images_attributes_#{i}_url", class:"hidden-field", type:"file"}
-          
-            -# = i.file_field :url, class: "hidden-field", id: "item_images_attributes_0_url" 
-            -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_images_attributes_1_url" }
-            -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_images_attributes_2_url" }
-            -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_images_attributes_3_url" }
-            -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_images_attributes_4_url" }
 
     .item-content
       %span 商品名
