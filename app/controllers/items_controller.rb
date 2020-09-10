@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
   def index
+    item_images = ItemImage.all
   end
 
   def new
@@ -22,6 +23,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    item_images = ItemImage.all
   end
 
   private

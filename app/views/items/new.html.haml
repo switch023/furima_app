@@ -6,9 +6,9 @@
   = render 'layouts/error_message', model: @item
   = form_for @item do |f|
     .input__box
-      %span 出品画像 
+      %span3 出品画像 
       %span{class: "text-required"} 必須
-      %span{class: "text-file"}最大5枚まで画像登録できます
+      %span4{class: "text-file"}最大5枚まで画像登録できます
       .post__drop__box__container
         .prev-content
         .label-content
@@ -24,44 +24,44 @@
             %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_images_attributes_4_url" }
 
     .item-content
-      %span 商品名
+      %span3 商品名
       %span{class: "text-required"} 必須
       = f.text_field :name, class: "item__name",  placeholder: "商品名(40文字以内)"
 
-      %span 商品の説明
+      %span3 商品の説明
       %span{class: "text-required"} 必須
       = f.text_area :introduction, class: "content-area", placeholder: '商品の特徴、注意点など(1,000文字以内)(色、素材、重さ、定価、注意点など)      例:2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
 
     .item-detail
-      %span カテゴリ
+      %span3 カテゴリ
       %span{class: "text-required"} 必須
       = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: "選択して下さい"}, {  class: "item-category-form", id: 'parent_category'}
  
-      %span ブランド
+      %span3 ブランド
       %span{class: "text-any"} 任意
       = f.text_field :brand, class: "brand__name",  placeholder: "ブランド名"
 
-      %span 商品の状態
+      %span3 商品の状態
       %span{class: "text-required"} 必須
       = f.collection_select :item_condition_id, ItemCondition.all, :id, :itemcondition,{include_blank: "選択して下さい"}
 
     .item-delibary
-      %span 送料の負担
+      %span3 送料の負担
       %span{class: "text-required"} 必須
       = f.collection_select :postage_payer_id, PostagePayer.all, :id, :postagepayer,{include_blank: "選択して下さい"}
-      %span 発送元の地域
+      %span3 発送元の地域
       %span{class: "text-required"} 必須
       = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :prefecturecode,{prompt: "選択して下さい"}
-      %span 発送までの日数 
+      %span3 発送までの日数 
       %span{class: "text-required"} 必須
       = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparationday,{include_blank: "選択して下さい"}
       
-      %span 発送方法
+      %span3 発送方法
       %span{class: "text-required"} 必須
       = f.collection_select :postage_type_id, PostageType.all, :id, :postagetype
 
     .item-price
-      %span 販売価格
+      %span3 販売価格
       %span{class: "text-required"} 必須
       = f.text_field :price, class: "price-area", placeholder:"例）¥300~9,999,999"
 
