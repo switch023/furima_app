@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   validates :nickname,  :first_name, :family_name, :first_name_kana, :family_name_kana, :birthday, presence: true
   validates :email, presence: true, allow_blank: true
   validates :encrypted_password, presence: true, allow_blank: true

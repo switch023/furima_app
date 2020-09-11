@@ -21,10 +21,9 @@
           %li.lists--right__login
             = link_to '/users/sign_out', method: :delete do
               ログアウト
-          -# この下のコメント３行は残します！
-          -# %li.lists--right__login
-          -#   = link_to '＃' do
-          -#     出品する
+          %li.lists--right__login
+            = link_to '/mypages' do
+              マイページ
       -else
         %ul.lists--right
           %li.lists--right__login
