@@ -1,0 +1,62 @@
+#pic1 {
+  margin-left: 591px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.fieldspan {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  background-color: red;
+  color: white
+}
+
+.field {
+text-align: center;
+}
+
+.actions{
+  text-align: center
+  }
+
+.input_field {
+  height: 48px;
+  padding: 10px 75px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin-bottom: 25px;
+  margin-top:10px;
+}
+
+.test {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom :20px;
+  box-shadow: 0 7px;
+  background-color: #3CCACE;
+  width: 330px;
+}
+
+input:active {
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+}
+
+.search {
+  margin-top: 10px;
+  text-align: center;
+  a{
+    color:#0099e8;
+  }
+}

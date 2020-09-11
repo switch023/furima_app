@@ -4,7 +4,6 @@ class CreateItemImages < ActiveRecord::Migration[5.2]
       t.references      :items, null: false, foregin_key: true
       t.string          :url,   null: false
       t.timestamps
-      validates :item_image, presence: true
     end
   end
 end

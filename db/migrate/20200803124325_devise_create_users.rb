@@ -6,6 +6,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :first_name, null: false
+      t.string :family_name, null: false
+      t.string :first_name_kana, null: false
+      t.string :family_name_kana, null: false
+      t.date :birthday, null: false
+      t.string :nickname, null: false
 
       ## Recoverable
       t.string   :reset_password_token
@@ -42,3 +48,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     # add_index :users, :unlock_token,         unique: true
   end
 end
+
+
+# rails db:rollback
+# rails db:migrate
+
+# rails db:migrate:reset
+#  rails db:drop
+#  rails db:create
+#  rails db:migrate
