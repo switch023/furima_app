@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function(){
                     </div>
                     <div class="lower-box">
                       <div class="delete-box" id="delete_btn_${count}">
-                        <span>削除</span>
+                        <span-btn>削除</span-btn>
                       </div>
                     </div>
                   </div>`
@@ -112,7 +112,7 @@ $(document).on('turbolinks:load', function(){
         //投稿編集時
         $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 5) {
           $('.label-content').show();
         }
         setLabel();
