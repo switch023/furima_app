@@ -7,7 +7,7 @@
         %form
           %input{type: "text", placeholder:'キーワードから探す'}
           = button_tag type: 'submit', class:"submit" do
-            = link_to (image_tag'icon-search 1.png') 
+            = link_to (image_tag'icon-search 1.png')
     .menu--lists
       %ul.lists--left
         %li.lists--left__product
@@ -16,10 +16,20 @@
         %li.lists--left__product
           = link_to '#' do
             ブランド
-      %ul.lists--right
-        %li.lists--right__login
-          = link_to '#' do
-            ログイン
-        %li.lists--right__login
-          = link_to '#' do
-            新規会員登録
+      -if user_signed_in?
+        %ul.lists--right
+          %li.lists--right__login
+            = link_to '/users/sign_out', method: :delete do
+              ログアウト
+          -# この下のコメント３行は残します！
+          -# %li.lists--right__login
+          -#   = link_to '＃' do
+          -#     出品する
+      -else
+        %ul.lists--right
+          %li.lists--right__login
+            = link_to '/users/sign_in' do
+              ログイン
+          %li.lists--right__login
+            = link_to 'users/sign_up' do
+              新規会員登録
