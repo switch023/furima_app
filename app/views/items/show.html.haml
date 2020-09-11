@@ -62,25 +62,25 @@
     .square1
       .square1__contents
         .square1__contents--name
-          product1
+          = @item.name
         .square1__contents--image1
           %ul
             %li
-              = image_tag src ="a007.png", class:"center",size:"540x346"
+              = image_tag "#{@item.item_images[0].url}", class:"center",size:"540x346"
               %ul
                 %li
-                  = image_tag src ="a007.png", class:"sub",size:"140x87"
+                  = image_tag "#{@item.item_images[0].url}", class:"sub",size:"140x87"
                 %li
                   = image_tag src ="a001.png", class:"sub",size:"140x87"
                 %li
                   = image_tag src ="a003.png", class:"sub",size:"140x87"
       .square1__price
-        %span
-          ¥30000
+        %span1 
+          = "¥#{@item.price}"
         %br/
         (税込)送料込み
       .square1__comment
-        デリシャス！
+        = @item.introduction
       .square1__table
         %table
           %tr
@@ -105,19 +105,22 @@
             %td 
           %tr
             %th 商品の状態
-            %td 未使用に近い
+            %td 
+              = @item.item_condition.itemcondition
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @item.postage_payer.postagepayer
           %tr
             %th 発送元の地域
             %td
               %a
                 = link_to "#",class: "btn"do
-                  岩手県
+                  = @item.prefecture_code.prefecturecode
           %tr
             %th 配送日の目安
-            %td 4-7日で発送
+            %td
+              = @item.preparation_day.preparationday
       .option
         .option__favorite
           %ul
@@ -130,6 +133,20 @@
               = link_to "#",class: "btn"do
                 = icon('fa','flag')
                 不適切な商品の通報
+    .square1-2
+      .square1-2__box
+        - if user_signed_in? && current_user.id == @item.seller_id
+          .square1-2__box__edit
+            = link_to edit_item_path,class:"edit-btn"do
+              編集する
+          .square1-2__box__delete
+            = link_to "#",class:"delete-btn"do
+              削除する
+        - elsif user_signed_in? && current_user.id != @item.seller_id
+          .square1-2__box__buy
+            = link_to new_purchase_path,class:"buy-btn"do
+              購入画面に移動する
+        
     .square2
       .square2__main
         .square2__main--form
@@ -238,5 +255,5 @@
 .purchaseBtn
   .purchaseBtn__icon
     = link_to "#" do
-      %i 出品する
+      %i 出品
       = image_tag src ="icon_camera.png", size:"54x54"

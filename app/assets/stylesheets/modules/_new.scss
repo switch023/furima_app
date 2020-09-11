@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-image {
+  text-align: center
+}
+
+.field {
+  font-weight: bold;
+  margin :18px;
+  text-align: center
+}
+
+.actions {
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center
+}
+
+#user_password {
+  padding: 12px 100px 8px;
+  margin: 10px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #3CCACE;
+}
+
+#user_email {
+  padding: 12px 100px 8px;
+  margin: 10px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #3CCACE;
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 160px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom :20px;
+  box-shadow: 0 7px;
+  background-color: #3CCACE;
+}
+
+.login-btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}

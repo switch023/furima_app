@@ -98,7 +98,7 @@
 .main{
   background-color: #f8f8f8;
   padding: 40px;
-  height: 1950px;
+  height: 2250px;
   &__contents{
     width: 700px;
     margin: 0 auto;
@@ -147,7 +147,7 @@
       &__price{
         margin: 18px 0 18px;
         text-align: center;
-        & span{
+        & span1{
           font-size: 38px;
           font-weight: bold;
           margin: 0 10px 0 0;
@@ -218,6 +218,43 @@
           margin-top: 10px;
           text-decoration: none;
           font-size: 14px;
+        }
+      }
+    }
+    .square1-2{
+      margin-top: 10px;
+      background-color: #fff;
+      padding: 40px 30px;
+      text-align: center;
+      &__box{
+        
+        .edit-btn{
+          display: block;
+          background-color: #3CCACE;
+          margin: 0 auto;
+          border-radius: 10px;
+          width: 60%;
+          line-height: 48px;
+          color: #fff;
+        }
+        .delete-btn{
+          display: block;
+          background-color: red;
+          line-height: 48px;
+          border-radius: 10px;
+          width: 60%;
+          margin: 0 auto;
+          margin-top: 20px;
+          color: #fff;
+        } 
+        .buy-btn{
+          display: block;
+          width: 60%;
+          background-color: red;
+          line-height: 48px;
+          border-radius: 10px;
+          margin: 0 auto;
+          color: #fff;
         }
       }
     }
