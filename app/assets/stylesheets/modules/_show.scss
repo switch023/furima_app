@@ -147,7 +147,7 @@
       &__price{
         margin: 18px 0 18px;
         text-align: center;
-        & span{
+        & span1{
           font-size: 38px;
           font-weight: bold;
           margin: 0 10px 0 0;
@@ -227,27 +227,34 @@
       padding: 40px 30px;
       text-align: center;
       &__box{
-        &__edit{
+        
+        .edit-btn{
+          display: block;
           background-color: #3CCACE;
           margin: 0 auto;
           border-radius: 10px;
           width: 60%;
           line-height: 48px;
-          .edit-btn{
-            color: #fff;
-          }
+          color: #fff;
         }
-        
-        &__delete{
-          background-color: #3CCACE;
+        .delete-btn{
+          display: block;
+          background-color: red;
           line-height: 48px;
           border-radius: 10px;
           width: 60%;
           margin: 0 auto;
           margin-top: 20px;
-          .delete-btn{
-            color: #fff;
-          }
+          color: #fff;
+        } 
+        .buy-btn{
+          display: block;
+          width: 60%;
+          background-color: red;
+          line-height: 48px;
+          border-radius: 10px;
+          margin: 0 auto;
+          color: #fff;
         }
       }
     }

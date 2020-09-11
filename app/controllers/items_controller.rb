@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
+
   before_action :set_item,only: [:show, :edit, :update]
+
   def index
   end
 

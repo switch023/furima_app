@@ -24,7 +24,7 @@
       .number 1
       = link_to (image_tag'pict-reason-01.jpg',height: '230px', width: '230px'),root_path
       %h1
-        %span 
+        %span2 
           3分
         ですぐに出品
       %p
@@ -33,7 +33,7 @@
       .number 2
       = link_to (image_tag'pict-reason-02.jpg',height: '230px', width: '230px'),root_path
       %h1
-        %span 
+        %span2
           シンプル
         で使いやすい
       %p
@@ -43,7 +43,7 @@
       = link_to (image_tag'pict-reason-03.jpg',height: '230px', width: '230px'),root_path
       %h1
         手数料
-        %span 
+        %span2
           業界最安
       %p.center
         最大3%でお得に出品&購入！
@@ -87,13 +87,13 @@
   .pick_up__category
     %h1 ピックアップカテゴリー
     %h2.color 新規投稿商品
-    - @items.each do |item|
-      = render "/layouts/products"
+    = render "/layouts/products"
+
   .pick_up__brand
     %h1 ピックアップブランド
     %h2.color アーカイバ
-    - @items.each do |item|
-      = render "/layouts/products"
+    = render "/layouts/products"
+
 
 = render "/layouts/content_download"
 = render "/layouts/footer"
