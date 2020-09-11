@@ -91,3 +91,14 @@ span{
 .label {
   text-align: center;
 }
+
+#error_explanation{
+  text-align: center;
+  h2 {
+    font-size: 20px;
+    color: red;
+  }
+  li {
+    color: red;
+  }
+}

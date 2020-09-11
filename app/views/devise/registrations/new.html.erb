@@ -29,11 +29,11 @@
   <%= f.label :お名前（全角）%><span class="fieldspan">必須</span><br />
   <div class="flex">
     <div class="field">
-      <%= f.text_field :first_name, autofocus: true,placeholder: "例）山田" , class:"first_name"%>
+      <%= f.text_field :family_name, autofocus: true,placeholder: "例）山田" , class:"family_name"%>
     </div>
 
     <div class="field">
-      <%= f.text_field :family_name, autofocus: true,placeholder: "例）太郎" , class:"family_name"%>
+      <%= f.text_field :first_name, autofocus: true,placeholder: "例）太郎" , class:"first_name"%>
     </div>
   </div>
 </div>
@@ -42,11 +42,11 @@
   <%= f.label :お名前カナ（全角） %><span class="fieldspan">必須</span><br />
     <div class="flex">
       <div class="field">
-      <%= f.text_field :first_name_kana, autofocus: true,placeholder: "例）ヤマダ" , class:"first＿kana"%>
+      <%= f.text_field :family_name_kana, autofocus: true,placeholder: "例）ヤマダ" , class:"family_kana"%>
     </div>
 
     <div class="field">
-      <%= f.text_field :family_name_kana, autofocus: true,placeholder: "例）タロウ" , class:"family_kana"%>
+      <%= f.text_field :first_name_kana, autofocus: true,placeholder: "例）タロウ" , class:"first＿kana"%>
     </div>
   </div>
 </div>
