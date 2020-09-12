@@ -64,16 +64,10 @@
         .square1__contents--name
           = @item.name
         .square1__contents--image1
-          %ul
-            %li
-              = image_tag "#{@item.item_images[0].url}", class:"center",size:"540x346"
-              %ul
-                %li
-                  = image_tag "#{@item.item_images[0].url}", class:"sub",size:"140x87"
-                %li
-                  = image_tag src ="a001.png", class:"sub",size:"140x87"
-                %li
-                  = image_tag src ="a003.png", class:"sub",size:"140x87"
+          = image_tag "#{@item.item_images[0].url}", class:"center",size:"540x346"
+          - @item.item_images.each do |image|
+            = image_tag image.url.url, class:"sub",size:"110x87"
+
       .square1__price
         %span1 
           = "¥#{@item.price}"
@@ -250,7 +244,7 @@
                   = link_to "#",class: "btn"do
                     お知らせ
     .footer__icon1
-      =link_to "#"do
+      =link_to root_path do
         = image_tag src ="logo-white.png", size:"160x46"
     .footer__icon2
       %p ©️ FURIMA
