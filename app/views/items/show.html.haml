@@ -85,21 +85,23 @@
         %table
           %tr
             %th 出品者
-            %td hoge
+            %td 
+              = @item.seller.nickname
           %tr
             %th カテゴリー
             %td 
               = link_to "#",class: "btn"do
-                ベビーキッズ
+                = @item.category.name
               %br
               = link_to "#",class: "btn"do
-                ベビー服
+                = @item.category.name
               %br
               = link_to "#",class: "btn"do
-                アウター
+                = @item.category.name
           %tr
             %th ブランド
             %td 
+              = @item.brand
           %tr
             %th 商品のサイズ
             %td 
