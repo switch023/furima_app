@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
-
-  before_action :set_item,only: [:show, :edit, :update]
+  before_action :set_item,only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -35,6 +34,15 @@ class ItemsController < ApplicationController
     else
       # redirect_to edit_item_path
       render :edit
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path,notice:'削除に成功しました'
+    else
+      flash.now[:alert] = '削除に失敗しました'
+      render :new
     end
   end
 
