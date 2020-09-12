@@ -1,4 +1,7 @@
-= render "/layouts/sellbutton"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
 = render "/layouts/header"
 
 .catch_copy

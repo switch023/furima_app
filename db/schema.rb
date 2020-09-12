@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 2020_08_28_060615) do
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_images_on_items_id"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.bigint "brand"
+    t.text "brand"
     t.bigint "category_id", null: false
     t.bigint "item_condition_id", null: false
     t.bigint "postage_payer_id", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_060615) do
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["item_condition_id"], name: "index_items_on_item_condetion_id"
+    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
     t.index ["prefecture_code_id"], name: "index_items_on_prefecture_code_id"

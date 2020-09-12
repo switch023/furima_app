@@ -1,6 +1,6 @@
 .header
   .header__logo-new
-    = link_to image_tag('logo/logo.png', alt: '', class: 'header__logo-new-main'), '#'
+    = link_to image_tag('logo/logo.png', alt: '', class: 'header__logo-new-main'), root_path
 
 .form
   = render 'layouts/error_message', model: @item
@@ -106,5 +106,5 @@
           = link_to root_path do
             お知らせ
   .footer__logo
-    = link_to image_tag('logo/logo-white.png', alt: '', class: 'footer__logo-white'), '#'
+    = link_to image_tag('logo/logo-white.png', alt: '', class: 'footer__logo-white'), root_path
   %p © FURIMA
