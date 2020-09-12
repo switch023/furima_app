@@ -142,7 +142,7 @@
             = link_to edit_item_path,class:"edit-btn"do
               編集する
           .square1-2__box__delete
-            = link_to "#",class:"delete-btn"do
+            = link_to item_path, method: :delete, class:"delete-btn"do
               削除する
         - elsif user_signed_in? && current_user.id != @item.seller_id
           .square1-2__box__buy
