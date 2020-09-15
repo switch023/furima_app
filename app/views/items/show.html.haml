@@ -2,13 +2,13 @@
   .head__top
     .title
       .title__main
-        .icon
+        %i
           = link_to root_path do
-            = image_tag src ="logo.png", size:"140x40"
+            = image_tag("logo/logo.png", alt:'',size:"140x40")
         .form__contents
           = form_for "#" do |f|
-            = f.text_field :content, class:'search',placeholder: "キーワードから探す"
-            = button_tag type:'submit', class: 'submit_btn' do
+            = f.text_field :content, class:'search1',placeholder: "キーワードから探す"
+            = button_tag type:'submit', class: 'submit_btn1' do
               = icon('fas','search')
       .title__sub
         .left-list
@@ -19,12 +19,23 @@
             = link_to "#" do
               ブランド
         .right-list
-          .login
-            = link_to "#" do
-              ログイン
-          .sign_up
-            = link_to "#" do
-              新規会員登録
+          -if user_signed_in?
+            %ul.lists--right2
+              %li.lists--right__login
+                = link_to '/users/sign_out', method: :delete do
+                  ログアウト
+              %li.lists--right__login
+                = link_to '/mypages' do
+                  マイページ
+          -else
+            %ul.lists--right2
+              %li.lists--right__login
+                = link_to '/users/sign_in' do
+                  ログイン
+              %li.lists--right__login
+                = link_to '/users/sign_up' do
+                  新規会員登録
+     
   .head__under
     .type
       .type--main
