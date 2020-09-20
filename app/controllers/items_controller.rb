@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items,only: [:index,:show]
+  require 'payjp'
   def index
   end
 
@@ -22,6 +23,21 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def buy
+    @item = Item.find(params[:item_id])
+    card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy'
+    )
+    @buyer = Item.find(params[:item_id])
+    @buyer.update(buyer_id: current_user.id)
+    flash[:notice] = '購入しました'
+    redirect_to root_path
   end
 
   private

@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function(){
           $("#charge-form").append(
             $(`<input type="hidden" name="payjpToken" value=${response.id}>`)
           );
-
           document.inputForm.submit();
           alert("登録しました")
         }else{
