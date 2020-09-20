@@ -36,10 +36,22 @@
               - exp_year = @initial_card_information.exp_year.to_s.slice(2,3)
               = "有効期限" + exp_month + " / " + exp_year
       .purchase--main__delivery
-        %h3.purchase--main__delivery__place
-          配送先
-        = link_to "#", class: "purchase--main__delivery__method" do
-          配送方法
+        - if @send_information.present?
+          %h3.purchase--main__delivery__place
+            配送先
+          =@send_information.prefecture
+          %br
+          =@send_information.post_code
+          %br
+          =@send_information.city
+          =@send_information.address
+          =@send_information.building_name
+          %br
+          =@send_information.send_first_name
+          =@send_information.send_family_name
+        - else
+          = link_to new_send_information_path, class: "purchase--main__delivery__method" do
+            配送方法
       = form_tag(item_buy_path, method: :post) do
         = submit_tag "購入する" 
 = render "mypages/footer_mypage"    

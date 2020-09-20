@@ -1,8 +1,8 @@
 class CardController < ApplicationController
   require "payjp"
 
-  def new
-    @card = CreditCard.where(user_id: current_user.id)
+  def index
+    @card = CreditCard.where(user_id: current_user.id).first
     redirect_to action: "show" if @card.exists?
   end
 
@@ -36,7 +36,7 @@ class CardController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
     else

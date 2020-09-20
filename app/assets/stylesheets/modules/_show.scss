@@ -242,6 +242,16 @@
           margin: 0 auto;
           margin-top: 20px;
           color: #fff;
+        }
+        .sell-btn{
+          display: block;
+          width: 60%;
+          background-color:#808080;
+          line-height: 48px;
+          border-radius: 10px;
+          margin: 0 auto;
+          color: #fff;
+          pointer-events: none;
         } 
         .buy-btn{
           display: block;

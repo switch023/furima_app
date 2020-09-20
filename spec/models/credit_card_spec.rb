@@ -2,11 +2,17 @@ require 'rails_helper'
 
 describe CreditCard do
   describe '#create'do
-
-    it "カード番号がない場合" do
-      card = FactoryBot.build(:credit_card, : nil)
-      card.valid?
-      expect(card.errors[:pay_number]).to include("can`t be blank")
+    context 'クレジットカードで購入がうまくいかない場合'do
+      it "カード番号がない場合" do
+        card = FactoryBot.build(:credit_card, card_id: nil)
+        card.valid?
+        expect(card.errors[:card_id]).to include("can`t be blank")
+      end
+      it "顧客のidがない場合" do
+        card = FactoryBot.build(:credit_card, customer_id: nil)
+        card.valid?
+        expect(card.errors[:customer_id]).to include("can`t be blank")
+      end
     end
   end
 end

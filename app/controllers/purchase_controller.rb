@@ -7,6 +7,7 @@ class PurchaseController < ApplicationController
       redirect_to new_card_path
       flash[:notice] = 'クレジットカード登録が必要です'
     else
+    @send_information = SendInformation.where(user_id: current_user.id).first
     @item = Item.find(params[:item_id])
     card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]

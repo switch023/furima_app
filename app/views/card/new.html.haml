@@ -33,7 +33,8 @@
         %option{value: "10"}10
         %option{value: "11"}11
         %option{value: "12"}12
-      %span 月/
+      %span{class: "set_month"} 
+        月/
       %select{name: "exp_year", type: "text", class: "year", id: "pay_year"}
         %option{value: ""} --
         %option{value: "2019"}19
@@ -47,7 +48,8 @@
         %option{value: "2027"}27
         %option{value: "2028"}28
         %option{value: "2029"}29
-      %span 年
+      %span{class: "set_year"}
+        年
       %br
       %label セキュリティコード
       = text_field_tag "cvc", "", class: "card--cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "pay_cvc"

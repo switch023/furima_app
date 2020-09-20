@@ -143,11 +143,19 @@
           .square1-2__box__delete
             = link_to item_path, method: :delete, class:"delete-btn"do
               削除する
-        - elsif user_signed_in? && current_user.id != @item.seller_id
+
+        - elsif @item.buyer_id.present? 
           .square1-2__box__buy
-            = link_to new_purchase_path,class:"buy-btn"do
+            = link_to item_purchase_index_path(@item),class:"sell-btn" do
+              売り切れ
+        - else
+          .square1-2__box__buy
+            = link_to item_purchase_index_path(@item),class:"buy-btn" do
               購入画面に移動する
-            = link_to 
+         
+          
+            
+
     .square2
       .square2__main
         .square2__main--form
