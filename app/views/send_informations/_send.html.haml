@@ -1,7 +1,8 @@
 .main--mypage
   .main--title
     %h3.main--title__content
-      さんのマイページ
+      = current_user.nickname
+      さんのページ
     .main--item
       .main--item__head
         %h3.main--title
@@ -11,34 +12,34 @@
           %p
             お名前(全角)
             %span 必須
-          = f.text_field :send_first_name, class: "login-input-text", placeholder: "例)山田"
-          = f.text_field :send_family_name, class: "login-input-text", placeholder: "例)太郎"
+          = f.text_field :send_first_name, class: "input_field", placeholder: "例)山田"
+          = f.text_field :send_family_name, class: "input_field", placeholder: "例)太郎"
           %p
             お名前(カナ)
             %span 必須
-          = f.text_field :send_first_name_kana, class: "login-input-text", placeholder: "例)ヤマダ"
-          = f.text_field :send_family_name_kana, class: "login-input-text", placeholder: "例)タロウ"
+          = f.text_field :send_first_name_kana, class: "input_field", placeholder: "例)ヤマダ"
+          = f.text_field :send_family_name_kana, class: "input_field", placeholder: "例)タロウ"
           %p
             郵便番号
             %span 必須
-          = f.text_field :post_code, class: "login-input-text", placeholder: "例)000-0000"
+          = f.text_field :post_code, class: "input_field", placeholder: "例)000-0000"
           %p
             都道府県
             %span 必須
-          = f.text_field :prefecture, class: "login-input-text", placeholder: "例)東京都"
+          = f.text_field :prefecture, class: "input_field", placeholder: "例)東京都"
           %p
             市区町村
             %span 必須
-          = f.text_field :city, class: "login-input-text", placeholder: "例)渋谷区"
+          = f.text_field :city, class: "input_field", placeholder: "例)渋谷区"
           %p
             番地
             %span 必須
-          = f.text_field :address, class: "login-input-text", placeholder: "例)神宮前1-1"
+          = f.text_field :address, class: "input_field", placeholder: "例)神宮前1-1"
           %p
             マンション名、部屋番号(任意)
-          = f.text_field :building_name, class: "login-input-text", placeholder: "例)DIVハイツ101号"
+          = f.text_field :building_name, class: "input_field", placeholder: "例)DIVハイツ101号"
           %p
             お届け先の電話番号(任意)
-          = f.text_field :phone_number, class: "login-input-text", placeholder: "例)00-0000-0000"
+          = f.text_field :phone_number, class: "input_field", placeholder: "例)00-0000-0000"
           %p
           = f.submit "変更する", class: "change-btn"

@@ -5,5 +5,5 @@
   .logout--page
     .logout--page__name
       = form_tag('root_path') do
-        = submit_tag "ログアウト"    
+        = submit_tag "ログアウト",destroy_user_session_path,method: :delete
 = render "footer_mypage"

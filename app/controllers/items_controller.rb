@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_items,only: [:index,:show]
   require 'payjp'
+  before_action :set_item,only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -22,7 +22,27 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      # redirect_to edit_item_path
+      render :edit
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path,notice:'削除に成功しました'
+    else
+      flash.now[:alert] = '削除に失敗しました'
+      render :new
+    end
   end
 
   def buy
@@ -49,5 +69,8 @@ class ItemsController < ApplicationController
 
   def set_items
     @items = Item.all
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

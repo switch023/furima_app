@@ -2,13 +2,13 @@
   .head__top
     .title
       .title__main
-        .icon
+        %i
           = link_to root_path do
-            = image_tag src ="logo.png", size:"140x40"
+            = image_tag("logo/logo.png", alt:'',size:"140x40")
         .form__contents
           = form_for "#" do |f|
-            = f.text_field :content, class:'search',placeholder: "キーワードから探す"
-            = button_tag type:'submit', class: 'submit_btn' do
+            = f.text_field :content, class:'search1',placeholder: "キーワードから探す"
+            = button_tag type:'submit', class: 'submit_btn1' do
               = icon('fas','search')
       .title__sub
         .left-list
@@ -19,12 +19,23 @@
             = link_to "#" do
               ブランド
         .right-list
-          .login
-            = link_to "#" do
-              ログイン
-          .sign_up
-            = link_to "#" do
-              新規会員登録
+          -if user_signed_in?
+            %ul.lists--right2
+              %li.lists--right__login
+                = link_to '/users/sign_out', method: :delete do
+                  ログアウト
+              %li.lists--right__login
+                = link_to '/mypages' do
+                  マイページ
+          -else
+            %ul.lists--right2
+              %li.lists--right__login
+                = link_to '/users/sign_in' do
+                  ログイン
+              %li.lists--right__login
+                = link_to '/users/sign_up' do
+                  新規会員登録
+     
   .head__under
     .type
       .type--main
@@ -61,71 +72,56 @@
   .main__contents
     .square1
       .square1__contents
-        - @items.each do |item|
-          .square1__contents--name
-            = item.name
-          .square1__contents--image1
-            %ul
-              %li
-                = image_tag src ="a007.png", class:"center",size:"540x346"
-                %ul
-                  %li
-                    = image_tag src ="a007.png", class:"sub",size:"140x87"
-                  %li
-                    = image_tag src ="a001.png", class:"sub",size:"140x87"
-                  %li
-                    = image_tag src ="a003.png", class:"sub",size:"140x87"
+        .square1__contents--name
+          = @item.name
+        .square1__contents--image1
+          = image_tag "#{@item.item_images[0].url}", class:"center",size:"540x346"
+          - @item.item_images.each do |image|
+            = image_tag image.url.url, class:"sub",size:"110x87"
+
       .square1__price
-        - @items.each do |item|
-          %span
-            ¥
-            = item.price
-          %br/
-          (税込)送料込み
+        %span1 
+          = "¥#{@item.price}"
+        %br/
+        (税込)送料込み
       .square1__comment
-        - @items.each do |item|
-          = item.introduction
+        = @item.introduction
       .square1__table
-        - @items.each do |item|
-          %table
-            %tr
-              %th 出品者
-              %td hoge
-            %tr
-              %th カテゴリー
-              %td 
+        %table
+          %tr
+            %th 出品者
+            %td 
+              = @item.seller.nickname
+          %tr
+            %th カテゴリー
+            %td 
+              = link_to "#",class: "btn"do
+                = @item.category.name
+          %tr
+            %th ブランド
+            %td 
+              = @item.brand
+          %tr
+            %th 商品のサイズ
+            %td 
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.item_condition.itemcondition
+          %tr
+            %th 配送料の負担
+            %td
+              = @item.postage_payer.postagepayer
+          %tr
+            %th 発送元の地域
+            %td
+              %a
                 = link_to "#",class: "btn"do
-                  ベビーキッズ
-                %br
-                = link_to "#",class: "btn"do
-                  ベビー服
-                %br
-                = link_to "#",class: "btn"do
-                  アウター
-            %tr
-              %th ブランド
-              %td 
-            %tr
-              %th 商品のサイズ
-              %td 
-            %tr
-              %th 商品の状態
-              %td 
-                = item.item_condition.itemcondition
-            %tr
-              %th 配送料の負担
-              %td
-                = item.postage_payer.postagepayer
-            %tr
-              %th 発送元の地域
-              %td
-                %a
-                  = link_to "#",class: "btn"do
-                    = item.prefecture_code.prefecturecode
-            %tr
-              %th 配送日の目安
-              %td
-                = item.preparation_day.preparationday
+                  = @item.prefecture_code.prefecturecode
+          %tr
+            %th 配送日の目安
+            %td
+              = @item.preparation_day.preparationday
       .option
         .option__favorite
           %ul
@@ -140,12 +136,18 @@
                 不適切な商品の通報
     .square1-2
       .square1-2__box
-        .square1-2__box__edit
-          = link_to "#",class:"edit-btn"do
-            編集する
-        .square1-2__box__delete
-          = link_to "#",class:"delete-btn"do
-            削除する
+        - if user_signed_in? && current_user.id == @item.seller_id
+          .square1-2__box__edit
+            = link_to edit_item_path,class:"edit-btn"do
+              編集する
+          .square1-2__box__delete
+            = link_to item_path, method: :delete, class:"delete-btn"do
+              削除する
+        - elsif user_signed_in? && current_user.id != @item.seller_id
+          .square1-2__box__buy
+            = link_to new_purchase_path,class:"buy-btn"do
+              購入画面に移動する
+            = link_to 
     .square2
       .square2__main
         .square2__main--form
@@ -247,12 +249,9 @@
                   = link_to "#",class: "btn"do
                     お知らせ
     .footer__icon1
-      =link_to "#"do
+      =link_to root_path do
         = image_tag src ="logo-white.png", size:"160x46"
     .footer__icon2
       %p ©️ FURIMA
-.purchaseBtn
-  .purchaseBtn__icon
-    = link_to "#" do
-      %i 出品する
-      = image_tag src ="icon_camera.png", size:"54x54"
+.label-content
+  %pre.label-box__text-visible

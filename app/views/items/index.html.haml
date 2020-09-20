@@ -1,4 +1,7 @@
-= render "/layouts/sellbutton"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
 = render "/layouts/header"
 
 .catch_copy
@@ -24,7 +27,7 @@
       .number 1
       = link_to (image_tag'pict-reason-01.jpg',height: '230px', width: '230px'),root_path
       %h1
-        %span 
+        %span2 
           3分
         ですぐに出品
       %p
@@ -33,7 +36,7 @@
       .number 2
       = link_to (image_tag'pict-reason-02.jpg',height: '230px', width: '230px'),root_path
       %h1
-        %span 
+        %span2
           シンプル
         で使いやすい
       %p
@@ -43,7 +46,7 @@
       = link_to (image_tag'pict-reason-03.jpg',height: '230px', width: '230px'),root_path
       %h1
         手数料
-        %span 
+        %span2
           業界最安
       %p.center
         最大3%でお得に出品&購入！
@@ -69,9 +72,9 @@
       = link_to (image_tag'icon-01.png',height: '300px', width: '300px'),root_path
       %h2
         簡単に売り買いできる
-      %p 
+      %p
         スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-    .characteristic__contents--content.margin   
+    .characteristic__contents--content.margin
       = link_to (image_tag'icon-02.png',height: '300px', width: '300px'),root_path
       %h2
         売上金は即日振込みに対応
@@ -87,13 +90,13 @@
   .pick_up__category
     %h1 ピックアップカテゴリー
     %h2.color 新規投稿商品
-    - @items.each do |item|
-      = render "/layouts/products"
+    = render "/layouts/products"
+
   .pick_up__brand
     %h1 ピックアップブランド
     %h2.color アーカイバ
-    - @items.each do |item|
-      = render "/layouts/products"
+    = render "/layouts/products"
+
 
 = render "/layouts/content_download"
 = render "/layouts/footer"

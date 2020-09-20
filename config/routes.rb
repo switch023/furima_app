@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   resources :signup, only: [:index]
   root to: 'items#index'
-  resources :items, only: [:new, :create, :show] do
+  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :purchase, only:[:index]
     resources :buy, only:[:index]
       post 'buy'
   end
+  
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

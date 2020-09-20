@@ -68,7 +68,7 @@ $font-color:  white;
       font-size: 24px;
       line-height: 50px;
       margin: 0 0 0 2px;
-      span{
+      span2{
         color:  #3CCACE;
       }
     }
@@ -214,8 +214,8 @@ $font-color:  white;
 }
 .image{
   width: 220px;
-  display: inline-block;
-  float: left;
+  // display: inline-block;
+  // float: left;
   a{
     background-color: #fff;
     display: inline-block;
@@ -229,3 +229,9 @@ $font-color:  white;
     text-align: left;
   }
 } 
+
+
+
+  .mypege-image{
+
+  }
