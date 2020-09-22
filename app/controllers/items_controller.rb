@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_items,only: [:index,:show]
+  require 'payjp'
   before_action :set_item,only: [:show, :edit, :update, :destroy]
-
+  before_action :set_items
   def index
+    
   end
 
   def new
@@ -44,6 +45,27 @@ class ItemsController < ApplicationController
       flash.now[:alert] = '削除に失敗しました'
       render :new
     end
+  end
+
+  def buy
+    if @send_informaiton.blank?
+      @item = Item.find(params[:item_id])
+      card = CreditCard.where(user_id: current_user.id).first
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp::Charge.create(
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy'
+      )
+      @item = Item.find(params[:item_id])
+      @item.update(buyer_id: current_user.id)
+      flash[:notice] = '購入しました'
+      redirect_to root_path
+    else
+      redirect_to item_purchase_index_path
+      flash[:notice] = '配送先を登録してください'
+    end
+
   end
 
   private
