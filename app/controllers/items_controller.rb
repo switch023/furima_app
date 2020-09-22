@@ -57,8 +57,8 @@ class ItemsController < ApplicationController
       customer: card.customer_id,
       currency: 'jpy'
       )
-      @buyer = Item.find(params[:item_id])
-      @buyer.update(buyer_id: current_user.id)
+      @item = Item.find(params[:item_id])
+      @item.update(buyer_id: current_user.id)
       flash[:notice] = '購入しました'
       redirect_to root_path
     else

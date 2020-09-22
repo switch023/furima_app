@@ -1,9 +1,9 @@
 class CardController < ApplicationController
   require "payjp"
+  before_action :set_card, only: [:new, :show, :destroy]
 
-  def index
-    @card = CreditCard.where(user_id: current_user.id).first
-    redirect_to action: "show" if @card.exists?
+  def new
+    redirect_to action: "show" if @card.present?
   end
 
   def pay
@@ -26,25 +26,27 @@ class CardController < ApplicationController
   end
 
   def show
-    card = CreditCard.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @initial_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @initial_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def destroy
-    card = CreditCard.where(user_id: current_user.id).first
-    if card.blank?
-    else
+    if @card.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: "new"
   end
+  private 
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
+  end
+
 end

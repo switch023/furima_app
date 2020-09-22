@@ -25,7 +25,7 @@
         
             .destroy-function
               .destroy-function__link
-                = link_to delete_card_index_path, method: :delete, class:"destroy-function__link__button"  do
+                = link_to delete_card_index_path(@card.id), method: :delete, class:"destroy-function__link__button"  do
                   カードを削除する
 = render "mypages/footer_mypage"
             
