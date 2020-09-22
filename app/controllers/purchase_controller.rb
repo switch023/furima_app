@@ -9,7 +9,7 @@ class PurchaseController < ApplicationController
     else
     @send_information = SendInformation.where(user_id: current_user.id).first
     @item = Item.find(params[:item_id])
-    card = CreditCard.where(user_id: current_user.id).first
+    card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @initial_card_information = customer.cards.retrieve(card.card_id)
