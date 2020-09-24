@@ -29,12 +29,20 @@ Things you may want to cover:
 |nickname|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique:true|
+|first_name|string|null: false|
+|family_name|string|null: false|
+|first_name_kana|string|null: false|
+|family_name_kana|string|null: false|
+|birth_year|date|null:false|
+|birth_month|date|null:false|
+|birth_day|date|null:false|
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
 - has_many :user_evaluations
 - has_many :todo_lists
-- has_one :profile, dependent: :destroy
+- has_many :buyer_items,foregin_key:"buyer_id",class_name:"items"
+- has_many :seller_items,foregin_key:"seller_id",class_name:"items"
 - has_one :send_infomation, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 
@@ -58,26 +66,9 @@ Things you may want to cover:
 ## credit_cards table
 |Column|Type|Options|
 |------|----|-------|
-|card_number|string|null: false|
-|expiration_month|string|null: false|
-|expiration_year|string|null: false|
-|security_code|string|null: false|
-|user|references|null :false foreign_key: true|
-### Association
-- belongs_to: user
-
-
-## profiles table
-|Column|Type|Options|
-|------|----|-------|
-|first_name|string|null: false|
-|family_name|string|null: false|
-|first_name_kana|string|null: false|
-|family_name_kana|string|null: false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_day|date|null:false|
-|user|references|null: false,foreign_key: true|
+|card_id|string|null: false|
+|customer_id|string|null: false|
+|user|integer|null :false |
 ### Association
 - belongs_to: user
 
@@ -117,24 +108,28 @@ Things you may want to cover:
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|brand|references|forgin_key: true|
+|brand|text|
 |category|references|null: false,foreign_key: true|
 |item_condition|references|null: false,foreign_key: true|
 |postage_payer|references|null: false,foreign_key: true|
 |prefecture_code|integer|null:false|
 |preparation_day|references|null: false,foreign_key: true|
 |postage_type|references|null:false,forgin_key: true|
+|buyer_id|references|foregin_key:true|
+|seller_id|references|null:false,foregin_key:true|
 ### Association
 - has_many :comments,dependent: :destroy
 - has_many :favorites
 - has_many :item_images,dependent: :destroy
 - has_one :user_evaluation
-- belongs_to :brand
 - belongs_to :category
 - belongs_to :active_hash :item_condition
 - belongs_to :active_hash :postage_payer
+- belongs_to :active_hash :prefecture_code
 - belongs_to :active_hash :preparation_day
 - belongs_to :active_hash :postage_type
+- belongs_to :buyer,class_name:"User"
+- belongs_to :seller,class_name:"User"
 
 
 ## comments table
@@ -168,14 +163,6 @@ Things you may want to cover:
 - belongs_to :items
 
 
-## brands table
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-### Association
-- has_many :items
-
-
 ## categories table
 |Column|Type|Options|
 |------|----|-------|
@@ -185,7 +172,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## item_conditions table
+## item_conditions(active_hash) table
 |Column|Type|Options|
 |------|----|-------|
 |item_condition|string|null:false|
@@ -193,7 +180,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## postage_payers table
+## postage_payers(active_hash) table
 |Column|Type|Options|
 |------|----|-------|
 |postage_payer|string|null:false|
@@ -201,7 +188,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## preparation_days table
+## preparation_days(active_hash) table
 |Column|Type|Options|
 |------|----|-------|
 |preparation_day|string|null:false|
@@ -209,9 +196,16 @@ Things you may want to cover:
 - has_many :items
 
 
-## postage_types
+## postage_types(active_hash) table
 |Column|Type|Options|
 |------|----|-------|
 |postage_type|string|null: false|
+### Association
+- has_many :items
+
+## prefecture_code(active_hash) table
+|Column|Type|Options|
+|------|----|-------|
+|prefecture__code|string|null: false|
 ### Association
 - has_many :items
