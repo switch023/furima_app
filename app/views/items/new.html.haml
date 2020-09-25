@@ -1,7 +1,7 @@
 .header
   .header__logo-new
     = link_to image_tag('logo/logo.png', alt: '', class: 'header__logo-new-main'), root_path
-
+    
 .form
   = render 'layouts/error_message', model: @item
   = form_for @item do |f|

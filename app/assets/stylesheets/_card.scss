@@ -32,7 +32,19 @@
       .card--image{
         margin-bottom: 20px;
       }
-
+      .set_month{
+        font-size: 15px;
+        color:black;
+        background-color:white;
+      }
+      .set_year{
+        color:black;
+        background-color: white;
+        line-height: 1;
+        font-size: 16px;
+        outline: none;
+        border-radius: 4px;
+      }
      .month {
         border: 1px solid #ccc;
         box-sizing: border-box;
@@ -42,7 +54,7 @@
         line-height: 1;
         margin: 0 ;
         outline: none;
-        padding: 0 56px 0 16px;
+        padding: 0 30px 0 16px;
         width: 40%;
         margin-bottom:20px;
      }
@@ -56,7 +68,7 @@
       line-height: 1;
       margin: 0;
       outline: none;
-      padding: 0 56px 0 16px;
+      padding: 0 25px 0 16px;
       margin-bottom:20px;
      }
 
@@ -88,5 +100,124 @@
       font-size: 20px;
       }
     }
+  }
+}
+
+.users-main {
+  height: 100%;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 24px 0 40px 0;
+}
+  .right-contents {
+    width: 700px;
+    float: right;
+    .card-show {
+      position: relative;
+      right: 195px;
+      width: 700px;
+      float: right;
+      &__content {
+        background-color: white;
+        &__title {
+          height: 60px;
+          width: 700px;
+          //color: $font_title;
+          font-size: 20px;
+          line-height: 80px;
+          text-align: center;
+          span {
+            font-weight: bold;
+            border-bottom: solid 1px $font_color;
+            padding-bottom: 3px;
+          }
+        }
+        .card-list {
+          margin-top: 10px;
+          height: 400px;
+          width: 700px;
+          display: flex;
+          &__info {
+            height: 400px;
+            width: 400px;
+            &__title {
+              position: relative;
+              left: 158px;
+              top: -11px;
+              font-weight: bold;
+              height: 50px;
+              width: 400px;
+              text-align: center;
+              line-height: 50px;
+            }
+            &__inner {
+              border: solid 2px;
+              color: lightseagreen;
+              border-radius: 25px;
+              height: 118px;
+              width: 318px;
+              padding-left: 50px;
+              border-radius: 20px;
+              margin: 0 auto;
+              &__brand {
+                height: 50px;
+                width: 250px;
+              }
+              &__number {
+                position: relative;
+                left: 69px;
+                top: -51px;
+                height: 50px;
+                width: 250px;
+                color: black;
+                font-weight: bold;
+                line-height: 50px;
+              }
+              &__expiration {
+                height: 60px;
+                width: 30px;
+                &__title {
+                  position: relative;
+                  left: 74px;
+                  top: -30px;
+                  font-weight: bold;
+                  width: 250px;
+                  color: black;
+                }
+                &__date {
+                  width: 250px;
+                  color: $font_color;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+          .destroy-function {
+            height: 300px;
+            width: 250px;
+            margin-top: 50px;
+            &__link {
+              height: 60px;
+              width: 200px;
+              background-color: lightseagreen;
+              line-height: 60px;
+              text-align: center;
+              margin: 40px auto 0;
+              border-radius: 30px;
+               &__button{
+                text-decoration: none;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+.image2{
+  img{
+    position: relative;
+    top: 23px;
+    right: 5px;
   }
 }

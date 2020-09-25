@@ -83,5 +83,7 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'active_hash'
 gem 'ancestry'
-gem 'jquery-rails'
+gem 'payjp'
+gem 'dotenv-rails'
+gem "jquery-rails"
 gem 'rails-i18n'

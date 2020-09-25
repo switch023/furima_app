@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :comments, dependent: :destroy
+  has_many :comments
   has_many :favorites
   has_many :item_images, dependent: :destroy
   has_one :user_evaluation
