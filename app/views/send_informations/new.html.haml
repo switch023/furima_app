@@ -1,6 +1,12 @@
-= render "mypages/header_mypage"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
+= render "/layouts/header"
 .wrapper
   = render "mypages/side_mypage"
   = render "send"
-= render "mypages/footer_mypage"
+= render "/layouts/content_download"
+= render "/layouts/footer"
+
   

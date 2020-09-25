@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index] do
+  resources :mypages, only: [:index,:destroy] do
     collection do
       get :logout
     end
