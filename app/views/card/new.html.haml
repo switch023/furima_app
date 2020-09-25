@@ -1,4 +1,8 @@
-= render "mypages/header_mypage"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
+= render "/layouts/header"
 .card
   .wrapper
     = render "mypages/side_mypage"
@@ -37,7 +41,6 @@
         月/
       %select{name: "exp_year", type: "text", class: "year", id: "pay_year"}
         %option{value: ""} --
-        %option{value: "2019"}19
         %option{value: "2020"}20
         %option{value: "2021"}21
         %option{value: "2022"}22
@@ -55,4 +58,5 @@
       = text_field_tag "cvc", "", class: "card--cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "pay_cvc"
       %br
       = submit_tag "登録する" , class: "card--submit", id: "pay_submit"
-= render "mypages/footer_mypage"
+= render "/layouts/content_download"
+= render "/layouts/footer"

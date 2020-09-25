@@ -228,19 +228,21 @@
     display: flex;
     justify-content: center;
     &__name{
-      display: block;
-      form{
-        input{
-          display: flex;
-          justify-content: center;
-          margin:0px auto;
-          background-color: #3CCACE;
-          color: #fff;
-          height:58px;
-          width: 450px;
-          border: 1px solid #ccc;
-          font-size: 26px;
-        }
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      position:relative;
+      background-color: #3CCACE;
+      color: #ffffff;
+      height:70px;
+      width: 450px;
+      border: 1px solid #ccc;
+      font-size: 26px;
+      &__font{
+        color: #ffffff;
+        position:absolute;
+        top:50%;
+        transform: translateY(-50%)
       }
     }  
   }

@@ -1,4 +1,8 @@
-= render "mypages/header_mypage"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
+= render "/layouts/header"
 .card
   .wrapper
     = render "mypages/side_mypage"
@@ -27,5 +31,6 @@
               .destroy-function__link
                 = link_to delete_card_index_path(@card.id), method: :delete, class:"destroy-function__link__button"  do
                   カードを削除する
-= render "mypages/footer_mypage"
+= render "/layouts/content_download"
+= render "/layouts/footer"
             

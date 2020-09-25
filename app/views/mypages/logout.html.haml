@@ -1,9 +1,13 @@
-= render "header_mypage"
+- if user_signed_in?
+  = render "/layouts/sellbutton"
+- else
+  = render "/layouts/no_login_sellbutton"
+= render "/layouts/header"
 .logout
   .wrapper
     = render "side_mypage"
   .logout--page
     .logout--page__name
-      = form_tag('root_path') do
-        = submit_tag "ログアウト",destroy_user_session_path,method: :delete
-= render "footer_mypage"
+      = link_to "ログアウト",destroy_user_session_path,method: :delete ,class: "logout--page__name__font"
+= render "/layouts/content_download"
+= render "/layouts/footer"
