@@ -3,7 +3,11 @@
     - @items.each do |item|
       .image   
         = link_to item_path(item.id) do
-          = image_tag "#{item.item_images[0].url}",height:"200px",width:"200px"
+          -if item.buyer_id.present? 
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
+          = image_tag "#{item.item_images[0].url}",height:"200pxpx",width:"200px"
           .info
           %p 
             = item.name
@@ -13,3 +17,5 @@
             (税込)
           %i.fas.fa-star
             0
+
+
