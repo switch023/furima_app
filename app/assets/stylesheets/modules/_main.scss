@@ -218,7 +218,8 @@ $font-color:  white;
   // float: left;
   a{
     background-color: #fff;
-    display: inline-block;
+    display: block;
+    position: relative;
   }
 }
 .info{
