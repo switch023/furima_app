@@ -1,0 +1,69 @@
+<%= image_tag 'logo.png', id: 'pic1', class: 'image' %>
+
+<%= form_for @send_information do |f| %>
+  <%= render "devise/shared/error_messages", resource: @send_information %>
+  <div class="send">送付情報登録</div>
+ <div class="flex2">
+  <%= f.label :お名前（全角）%><span class="fieldspan">必須</span><br />
+  <div class="flex">
+    <div class="field">
+      <%= f.text_field :send_family_name, autofocus: true,placeholder: "例）山田" , class:"family_name"%>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :send_first_name, autofocus: true,placeholder: "例）太郎" , class:"first_name"%>
+    </div>
+  </div>
+</div>
+
+<div class="flex2">
+  <%= f.label :お名前カナ（全角） %><span class="fieldspan">必須</span><br />
+    <div class="flex">
+      <div class="field">
+      <%= f.text_field :send_family_name_kana, autofocus: true,placeholder: "例）ヤマダ" , class:"family_kana"%>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :send_first_name_kana, autofocus: true,placeholder: "例）タロウ" , class:"first＿kana"%>
+    </div>
+  </div>
+</div>
+
+  <div class="field">
+    <%= f.label :郵便番号%><span class="fieldspan">必須</span><br />
+    <%= f.text_field :post_code, autofocus:true ,placeholder: "000-0000", class:"input_field" %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :都道府県%><span class="fieldspan">必須</span><br />
+    <%= f.text_field :prefecture, autofocus:true ,placeholder: "東京都", class:"input_field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :市区町村%><span class="fieldspan">必須</span><br />
+    <%= f.text_field :city, autofocus:true ,placeholder: "渋谷区", class:"input_field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :番地%><span class="fieldspan">必須</span><br />
+    <%= f.text_field :address, autofocus:true ,placeholder: "神宮前1-1", class:"input_field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :マンション名、部屋番号（任意）%><br />
+    <%= f.text_field :building_name, autofocus:true ,placeholder: "DIVハイツ101号", class:"input_field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :お届け先の電話番号（任意）%><br />
+    <%= f.text_field :phone_number, autofocus:true ,placeholder: "000-0000-0000", class:"input_field" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録する" ,class:"test"%>
+<% end %>
+
+<div class= searchs>
+<%= render "devise/shared/links" %>
+</div>
