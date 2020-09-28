@@ -7,9 +7,15 @@ Rails.application.routes.draw do
       post 'buy'
   end
   
-  devise_for :users
+  devise_for :users, controllers:{
+    registrations: 'users/registrations',
+  }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    get 'send_informations', to: 'users/registrations#new_send_information'
+    post 'send_informations', to: 'users/registrations#create_send_information'
+    root to: 'items#index'
+
   end
   resources :card, only: [:new, :show, :destroy] do
     collection do
@@ -24,5 +30,5 @@ Rails.application.routes.draw do
       get :logout
     end
   end
-  resources :send_informations, only: [:new, :create, :update]
+  resources :send_informations, only: [:new, :create, :edit, :update]
 end
