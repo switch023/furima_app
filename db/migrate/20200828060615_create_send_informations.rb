@@ -5,7 +5,7 @@ class CreateSendInformations < ActiveRecord::Migration[5.2]
       t.string        :send_family_name,null:false
       t.string        :send_first_name_kana,null:false
       t.string        :send_family_name_kana,null:false
-      t.integer       :post_code,null:false
+      t.integer        :post_code,null:false
       t.string        :prefecture,null:false
       t.string        :city,null:false
       t.string        :address,null:false
