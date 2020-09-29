@@ -47,7 +47,7 @@
   .field
     = f.label :お届け先の電話番号（任意）
     %br/
-    = f.text_field :phone_number, autofocus:true ,placeholder: "000-0000-0000", class:"input_field"
+    = f.telephone_field :phone_number, autofocus:true ,placeholder: "000-0000-0000", class:"input_field"
   .actions
     = f.submit "新規登録する" ,class:"test"
     .searchs
