@@ -5,7 +5,7 @@
   .purchase
     .purchase--main
       .purchase--main__title
-        %h1　購入内容の確認
+        %h1 購入内容の確認
       .purchase--main__product
         .purchase--main__product__picture
           = image_tag "#{@item.item_images[0].url}", width:"80",height:"80"
@@ -39,16 +39,16 @@
         - if @send_information.present?
           %h3.purchase--main__delivery__place
             配送先
-          =@send_information.prefecture
-          %br
           =@send_information.post_code
+          %br
+          =@send_information.prefecture
           %br
           =@send_information.city
           =@send_information.address
           =@send_information.building_name
           %br
-          =@send_information.send_first_name
           =@send_information.send_family_name
+          =@send_information.send_first_name
         - else
           = link_to new_send_information_path, class: "purchase--main__delivery__method" do
             配送方法
